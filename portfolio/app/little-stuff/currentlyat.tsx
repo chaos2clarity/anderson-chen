@@ -52,11 +52,4 @@ export default function Currentlyat() {
      );
 }
 
-/* Styling Notes:
- * - group/group-hover: Enables hover effects on child elements when parent is hovered
- * - decoration-2: Sets underline thickness
- * - underline-offset-4: Sets distance between text and underline
- * - relative z-10: Ensures underline appears above background elements
- * - transition-all duration-300: Smooth animation for hover effects
- */
- 
+

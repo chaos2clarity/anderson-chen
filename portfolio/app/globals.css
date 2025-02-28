@@ -28,3 +28,13 @@ body {
     @apply transition-all duration-300 hover:transform hover:scale-110 cursor-default;
   }
 }
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
