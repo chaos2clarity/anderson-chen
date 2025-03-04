@@ -4,8 +4,6 @@ import Currentlyat from "@/app/little-stuff/currentlyat";
 import DynamicFrameLayout from "@/designcomposnent/DynamicFrameLayout";
 import Folder from "@/app/designcomponents/folder";
 import Image from "next/image";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function Projects() {
   const [headerSize, setHeaderSize] = useState(1);
@@ -102,63 +100,50 @@ export default function Projects() {
 
         {/*Right Section*/}
         <div className="w-full md:w-[calc(100%-340px)] lg:w-[calc(100%-340px)] flex flex-col gap-8">
-          <div className="flex flex-row flex-start h-[29vh] gap-5">
-            <div className="flex flex-col gap-5 pt-7 px-7">
-              {/* Sections*/}
-              <a
-                className="text-white/60 hover:text-sky-200/80 font text-3xl italic"
-                href="/pages/about"
-              >
-                about me
-              </a>
-
-              <a
-                className="text-white/60 hover:text-emerald-200/80 font text-3xl italic"
-                href="/blogs"
-              >
-                chemical engineering
-              </a>
-              <a
-                className="text-white/60 hover:text-amber-200/80 font text-3xl italic"
-                href="/arts"
-              >
-                arts & photography
-              </a>
-              <a
-                className="text-white/60 hover:text-pink-200/80 font text-3xl italic"
-                href="/pages/projects"
-              >
-                readings
-              </a>
-              <a
-                className="text-white/60 hover:text-indigo-200/80 font text-3xl italic"
-                href="/pages/resume"
-              >
-                resume & work
-              </a>
-              <a
-                className="text-white/60 hover:text-red-300/80 font text-3xl italic"
-                href="/blogs"
-              >
-                blogs
-              </a>
-            </div>
-            <div className="justify-between gap-5"></div>
+          {/* Folders Row */}
+          <div className="flex flex-row justify-center items-center gap-8 px-5 mt-12">
+            <a href="/pages/arts"> 
+              <Folder 
+                name="arts & photography"
+                height={28} 
+                primaryColor="bg-zinc-200"
+                secondaryColor="bg-zinc-100" 
+                perspective={1500}
+              />
+            </a>
+            <a href="/pages/projects/design"> 
+              <Folder 
+                name="design projects"
+                height={28} 
+                primaryColor="bg-zinc-300"
+                secondaryColor="bg-zinc-100" 
+                perspective={1500}
+              />
+            </a>
+            <a href="/pages/projects/engineering"> 
+              <Folder 
+                name="engineering"
+                height={28} 
+                primaryColor="bg-zinc-200"
+                secondaryColor="bg-zinc-100" 
+                perspective={1500}
+              />
+            </a>
+            <a href="/pages/projects/research"> 
+              <Folder 
+                name="research"
+                height={28} 
+                primaryColor="bg-zinc-300"
+                secondaryColor="bg-zinc-100" 
+                perspective={1500}
+              />
+            </a>
           </div>
           {/* top right section*/}
 
           {/* Horizontal Gallery with Navigation */}
-          <div className="relative w-full mt-20">
-            <div className="items-center flex relative justify-center">
-              <Link
-                className="text-sm text-white/60 hover:text-white/90 transition-colors"
-                href="/pages/arts"
-              >
-                see full gallery
-              </Link>
-            </div>
-
-            <div
+          <div className="relative w-full mt-40">
+            <div 
               ref={containerRef}
               className="flex overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory w-full"
               style={{ scrollBehavior: "smooth" }}
@@ -188,37 +173,31 @@ export default function Projects() {
             </div>
 
             {/* Image Modal */}
-            <AnimatePresence>
-              {selectedImage !== null && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={transition}
-                  className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
-                  onClick={() => setSelectedImage(null)}
-                >
-                  <div className="relative w-[80vw] h-[80vh]">
-                    <Image
-                      src={`/${selectedImage.type === "photography" ? "photo" : "artworks"}${selectedImage.num}.jpg`}
-                      alt={`${selectedImage.type === "photography" ? "Photo" : "Artwork"} ${selectedImage.num}`}
-                      fill
-                      className="object-contain"
-                      quality={100}
-                    />
-                    <button
-                      className="absolute top-4 right-4 text-white/60 hover:text-white text-2xl"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedImage(null);
-                      }}
-                    >
-                      ×
-                    </button>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {selectedImage !== null && (
+              <div 
+                className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+                onClick={() => setSelectedImage(null)}
+              >
+                <div className="relative w-[80vw] h-[80vh]">
+                  <Image
+                    src={`/${selectedImage.type === 'photography' ? 'photo' : 'artworks'}${selectedImage.num}.jpg`}
+                    alt={`${selectedImage.type === 'photography' ? 'Photo' : 'Artwork'} ${selectedImage.num}`}
+                    fill
+                    className="object-contain"
+                    quality={100}
+                  />
+                  <button
+                    className="absolute top-4 right-4 text-white/60 hover:text-white text-2xl"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedImage(null);
+                    }}
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+            )}
 
             {/* Navigation Arrows */}
             <div className="flex justify-between w-full mt-4">
