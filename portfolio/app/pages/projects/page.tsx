@@ -4,32 +4,47 @@ import Currentlyat from "@/app/little-stuff/currentlyat";
 import DynamicFrameLayout from "@/designcomposnent/DynamicFrameLayout";
 import Folder from "@/app/designcomponents/folder";
 import Image from "next/image";
+import Link from "next/link";
+<<<<<<< HEAD
+import { motion, AnimatePresence } from "framer-motion";
+=======
+>>>>>>> fd7f8559fb81981e2bd7ee388e7917533e76526c
 
 export default function Projects() {
   const [headerSize, setHeaderSize] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
   const [selectedImage, setSelectedImage] = useState<{
     num: number;
-    type: 'photography' | 'artworks';
+    type: "photography" | "artworks";
   } | null>(null);
-  const [activeGallery, setActiveGallery] = useState<'photography' | 'artworks'>('photography');
+  const [activeGallery, setActiveGallery] = useState<
+    "photography" | "artworks"
+  >("photography");
   const [currentIndices, setCurrentIndices] = useState<number[]>([]);
 
   const photographyIndices = [3, 0, 1, 2, 4, 6, 7, 8, 9, 11, 12];
   const artworksIndices = [1, 2, 3, 4];
+  const transition = {
+    duration: 0.3,
+    delay: 0.2,
+    ease: [0, 0.71, 0.29, 1],
+  };
 
   useEffect(() => {
-    const currentIndices = activeGallery === 'photography' ? photographyIndices : artworksIndices;
+    const currentIndices =
+      activeGallery === "photography" ? photographyIndices : artworksIndices;
     setCurrentIndices(currentIndices);
   }, [activeGallery]);
 
-  const scroll = (direction: 'left' | 'right') => {
+  const scroll = (direction: "left" | "right") => {
     if (containerRef.current) {
       const scrollAmount = 300;
-      const newScrollPosition = containerRef.current.scrollLeft + (direction === 'left' ? -scrollAmount : scrollAmount);
+      const newScrollPosition =
+        containerRef.current.scrollLeft +
+        (direction === "left" ? -scrollAmount : scrollAmount);
       containerRef.current.scrollTo({
         left: newScrollPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
@@ -90,66 +105,113 @@ export default function Projects() {
 
         {/*Right Section*/}
         <div className="w-full md:w-[calc(100%-340px)] lg:w-[calc(100%-340px)] flex flex-col gap-8">
-          {/* Folders Row */}
-          <div className="flex flex-row justify-center items-center gap-8 px-5 mt-12">
-            <a href="/pages/arts"> 
-              <Folder 
-                name="arts & photography"
-                height={28} 
-                primaryColor="bg-zinc-200"
-                secondaryColor="bg-zinc-100" 
-                perspective={1500}
-              />
-            </a>
-            <a href="/pages/projects/design"> 
-              <Folder 
-                name="design projects"
-                height={28} 
-                primaryColor="bg-zinc-300"
-                secondaryColor="bg-zinc-100" 
-                perspective={1500}
-              />
-            </a>
-            <a href="/pages/projects/engineering"> 
-              <Folder 
-                name="engineering"
-                height={28} 
-                primaryColor="bg-zinc-200"
-                secondaryColor="bg-zinc-100" 
-                perspective={1500}
-              />
-            </a>
-            <a href="/pages/projects/research"> 
-              <Folder 
-                name="research"
-                height={28} 
-                primaryColor="bg-zinc-300"
-                secondaryColor="bg-zinc-100" 
-                perspective={1500}
-              />
-            </a>
+          <div className="flex flex-row flex-start h-[29vh] gap-5">
+<<<<<<< HEAD
+            <div className="flex flex-col gap-5 pt-7 px-7">
+              {/* Sections*/}
+              <a
+                className="text-white/60 hover:text-sky-200/80 font text-3xl italic"
+                href="/pages/about"
+              >
+                about me
+              </a>
+
+              <a
+                className="text-white/60 hover:text-emerald-200/80 font text-3xl italic"
+                href="/blogs"
+=======
+            <div className="flex flex-col gap-5">
+              {/* Sections*/}
+              <a
+                className="text-white/60 hover:text-white/80 font text-3xl italic"
+                href="/pages/arts & photography"
+>>>>>>> fd7f8559fb81981e2bd7ee388e7917533e76526c
+              >
+                chemical engineering
+              </a>
+              <a
+<<<<<<< HEAD
+                className="text-white/60 hover:text-amber-200/80 font text-3xl italic"
+                href="/arts"
+              >
+                arts & photography
+              </a>
+              <a
+                className="text-white/60 hover:text-pink-200/80 font text-3xl italic"
+                href="/pages/projects"
+              >
+                readings
+              </a>
+              <a
+                className="text-white/60 hover:text-indigo-200/80 font text-3xl italic"
+                href="/pages/resume"
+              >
+                resume & work
+              </a>
+              <a
+                className="text-white/60 hover:text-red-300/80 font text-3xl italic"
+                href="/blogs"
+              >
+                blogs
+              </a>
+            </div>
+            <div className="justify-between gap-5"></div>
+=======
+                className="text-white/60 hover:text-white/80 font text-3xl italic"
+                href="/pages/blogs"
+              >
+                blogs
+              </a>
+              <a
+                className="text-white/60 hover:text-white/80 font text-3xl italic"
+                href="/pages/projects"
+              >
+                arts & photography
+              </a>
+            </div>
+            <div className="justify-between gap-5">
+              
+            </div>
+>>>>>>> fd7f8559fb81981e2bd7ee388e7917533e76526c
           </div>
+          {/* top right section*/}
 
           {/* Horizontal Gallery with Navigation */}
+<<<<<<< HEAD
+          <div className="relative w-full mt-20">
+=======
           <div className="relative w-full mt-40">
-            <div 
+>>>>>>> fd7f8559fb81981e2bd7ee388e7917533e76526c
+            <div className="items-center flex relative justify-center">
+              <Link
+                className="text-sm text-white/60 hover:text-white/90 transition-colors"
+                href="/pages/arts"
+              >
+                see full gallery
+              </Link>
+            </div>
+
+            <div
               ref={containerRef}
               className="flex overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory w-full"
-              style={{ scrollBehavior: 'smooth' }}
+              style={{ scrollBehavior: "smooth" }}
             >
               <div className="flex gap-6 p-4 min-w-max">
                 {currentIndices.map((num) => (
-                  <div 
+                  <div
                     key={num}
-                    className="relative w-[17vw] min-w-[260px] max-w-[400px] aspect-[3/4] flex-shrink-0 snap-center cursor-pointer"
-                    onClick={() => setSelectedImage({ 
-                      num, 
-                      type: activeGallery 
-                    })}
+                    className="relative w-[17vw] 
+                    min-w-[260px] max-w-[400px] aspect-[3/4] flex-shrink-0 snap-center cursor-pointer"
+                    onClick={() =>
+                      setSelectedImage({
+                        num,
+                        type: activeGallery,
+                      })
+                    }
                   >
                     <Image
-                      src={`/${activeGallery === 'photography' ? 'photo' : 'artworks'}${num}.jpg`}
-                      alt={`${activeGallery === 'photography' ? 'Photo' : 'Artwork'} ${num}`}
+                      src={`/${activeGallery === "photography" ? "photo" : "artworks"}${num}.jpg`}
+                      alt={`${activeGallery === "photography" ? "Photo" : "Artwork"} ${num}`}
                       fill
                       className="object-cover rounded-lg hover:scale-[1.02] transition-transform duration-300"
                     />
@@ -159,15 +221,48 @@ export default function Projects() {
             </div>
 
             {/* Image Modal */}
+<<<<<<< HEAD
+            <AnimatePresence>
+              {selectedImage !== null && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={transition}
+                  className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+                  onClick={() => setSelectedImage(null)}
+                >
+                  <div className="relative w-[80vw] h-[80vh]">
+                    <Image
+                      src={`/${selectedImage.type === "photography" ? "photo" : "artworks"}${selectedImage.num}.jpg`}
+                      alt={`${selectedImage.type === "photography" ? "Photo" : "Artwork"} ${selectedImage.num}`}
+                      fill
+                      className="object-contain"
+                      quality={100}
+                    />
+                    <button
+                      className="absolute top-4 right-4 text-white/60 hover:text-white text-2xl"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedImage(null);
+                      }}
+                    >
+                      ×
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+=======
             {selectedImage !== null && (
-              <div 
+              <div
                 className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
                 onClick={() => setSelectedImage(null)}
               >
                 <div className="relative w-[80vw] h-[80vh]">
                   <Image
-                    src={`/${selectedImage.type === 'photography' ? 'photo' : 'artworks'}${selectedImage.num}.jpg`}
-                    alt={`${selectedImage.type === 'photography' ? 'Photo' : 'Artwork'} ${selectedImage.num}`}
+                    src={`/${selectedImage.type === "photography" ? "photo" : "artworks"}${selectedImage.num}.jpg`}
+                    alt={`${selectedImage.type === "photography" ? "Photo" : "Artwork"} ${selectedImage.num}`}
                     fill
                     className="object-contain"
                     quality={100}
@@ -184,11 +279,12 @@ export default function Projects() {
                 </div>
               </div>
             )}
+>>>>>>> fd7f8559fb81981e2bd7ee388e7917533e76526c
 
             {/* Navigation Arrows */}
             <div className="flex justify-between w-full mt-4">
-              <button 
-                onClick={() => scroll('left')}
+              <button
+                onClick={() => scroll("left")}
                 className="px-4 py-2 text-white/60 hover:text-white/90 transition-colors text-2xl"
               >
                 ←
@@ -197,26 +293,29 @@ export default function Projects() {
                 <button
                   onClick={() => setActiveGallery("photography")}
                   className={`px-4 py-2 font-light 
-                    ${activeGallery === "photography" 
-                      ? "text-white/90" 
-                      : "text-white/60"
+                    ${
+                      activeGallery === "photography"
+                        ? "text-white/90"
+                        : "text-white/60"
                     } hover:text-white/90 transition-colors sm:text-sm md:text-xl`}
                 >
-                  photography works
+                  photography.
                 </button>
-                <button 
+
+                <button
                   onClick={() => setActiveGallery("artworks")}
                   className={`px-4 py-2 font-light 
-                    ${activeGallery === "artworks" 
-                      ? "text-white/90" 
-                      : "text-white/60"
+                    ${
+                      activeGallery === "artworks"
+                        ? "text-white/90"
+                        : "text-white/60"
                     } hover:text-white/90 transition-colors sm:text-sm md:text-xl`}
                 >
-                  artworks 
+                  artworks.
                 </button>
               </div>
-              <button 
-                onClick={() => scroll('right')}
+              <button
+                onClick={() => scroll("right")}
                 className="px-4 py-2 text-white/60 font-light hover:text-white/90 transition-colors sm:text-sm md:text-xl"
               >
                 →
