@@ -4,6 +4,7 @@ import Currentlyat from "@/app/little-stuff/currentlyat";
 import DynamicFrameLayout from "@/designcomposnent/DynamicFrameLayout";
 import Folder from "@/app/designcomponents/folder";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Projects() {
   const [headerSize, setHeaderSize] = useState(1);
@@ -19,11 +20,6 @@ export default function Projects() {
 
   const photographyIndices = [3, 0, 1, 2, 4, 6, 7, 8, 9, 11, 12];
   const artworksIndices = [1, 2, 3, 4];
-  const transition = {
-    duration: 0.3,
-    delay: 0.2,
-    ease: [0, 0.71, 0.29, 1],
-  };
 
   useEffect(() => {
     const currentIndices =
@@ -100,50 +96,46 @@ export default function Projects() {
 
         {/*Right Section*/}
         <div className="w-full md:w-[calc(100%-340px)] lg:w-[calc(100%-340px)] flex flex-col gap-8">
-          {/* Folders Row */}
-          <div className="flex flex-row justify-center items-center gap-8 px-5 mt-12">
-            <a href="/pages/arts"> 
-              <Folder 
-                name="arts & photography"
-                height={28} 
-                primaryColor="bg-zinc-200"
-                secondaryColor="bg-zinc-100" 
-                perspective={1500}
-              />
-            </a>
-            <a href="/pages/projects/design"> 
-              <Folder 
-                name="design projects"
-                height={28} 
-                primaryColor="bg-zinc-300"
-                secondaryColor="bg-zinc-100" 
-                perspective={1500}
-              />
-            </a>
-            <a href="/pages/projects/engineering"> 
-              <Folder 
-                name="engineering"
-                height={28} 
-                primaryColor="bg-zinc-200"
-                secondaryColor="bg-zinc-100" 
-                perspective={1500}
-              />
-            </a>
-            <a href="/pages/projects/research"> 
-              <Folder 
-                name="research"
-                height={28} 
-                primaryColor="bg-zinc-300"
-                secondaryColor="bg-zinc-100" 
-                perspective={1500}
-              />
-            </a>
+          <div className="flex flex-row flex-start h-[29vh] gap-5">
+            <div className="flex flex-col gap-5">
+              {/* Sections*/}
+              <a
+                className="text-white/60 hover:text-white/80 font text-3xl italic"
+                href="/pages/arts & photography"
+              >
+                chemical engineering
+              </a>
+              <a
+                className="text-white/60 hover:text-white/80 font text-3xl italic"
+                href="/pages/blogs"
+              >
+                blogs
+              </a>
+              <a
+                className="text-white/60 hover:text-white/80 font text-3xl italic"
+                href="/pages/projects"
+              >
+                arts & photography
+              </a>
+            </div>
+            <div className="justify-between gap-5">
+              
+            </div>
           </div>
           {/* top right section*/}
 
           {/* Horizontal Gallery with Navigation */}
           <div className="relative w-full mt-40">
-            <div 
+            <div className="items-center flex relative justify-center">
+              <Link
+                className="text-sm text-white/60 hover:text-white/90 transition-colors"
+                href="/pages/arts"
+              >
+                see full gallery
+              </Link>
+            </div>
+
+            <div
               ref={containerRef}
               className="flex overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory w-full"
               style={{ scrollBehavior: "smooth" }}
@@ -174,14 +166,14 @@ export default function Projects() {
 
             {/* Image Modal */}
             {selectedImage !== null && (
-              <div 
+              <div
                 className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
                 onClick={() => setSelectedImage(null)}
               >
                 <div className="relative w-[80vw] h-[80vh]">
                   <Image
-                    src={`/${selectedImage.type === 'photography' ? 'photo' : 'artworks'}${selectedImage.num}.jpg`}
-                    alt={`${selectedImage.type === 'photography' ? 'Photo' : 'Artwork'} ${selectedImage.num}`}
+                    src={`/${selectedImage.type === "photography" ? "photo" : "artworks"}${selectedImage.num}.jpg`}
+                    alt={`${selectedImage.type === "photography" ? "Photo" : "Artwork"} ${selectedImage.num}`}
                     fill
                     className="object-contain"
                     quality={100}
