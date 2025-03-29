@@ -6,6 +6,8 @@ import Folder from "@/app/designcomponents/folder";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import {SidebarProvider, SidebarTrigger} from "@/components/ui/sidebar"
+
 
 export default function Projects() {
   const [headerSize, setHeaderSize] = useState(1);
@@ -114,13 +116,13 @@ export default function Projects() {
 
               <a
                 className="text-white/60 hover:text-emerald-200/80 font text-3xl italic"
-                href="/blogs"
+                href="/pages/chemical engineering"
               >
                 chemical engineering
               </a>
               <a
                 className="text-white/60 hover:text-amber-200/80 font text-3xl italic"
-                href="/arts"
+                href="/pages/arts"
               >
                 arts & photography
               </a>
@@ -134,11 +136,11 @@ export default function Projects() {
                 className="text-white/60 hover:text-indigo-200/80 font text-3xl italic"
                 href="/pages/resume"
               >
-                resume & work
+                experiences
               </a>
               <a
                 className="text-white/60 hover:text-red-300/80 font text-3xl italic"
-                href="/blogs"
+                href="/pages/blogs"
               >
                 blogs
               </a>

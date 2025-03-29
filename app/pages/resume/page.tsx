@@ -8,43 +8,45 @@ export default function Resume() {
         <div className="w-full md:w-[300px] flex-shrink-0 flex flex-col justify-between h-full">
           <div className="flex flex-col gap-5">
             <h1 className="text-4xl md:text-6xl font-light italic text-white/80 tracking-tighter leading-[130%]">
-              Resume & Work
+              Life Story
             </h1>
             <div className="space-y-4 pt-6">
               <div className="h-px bg-white/10 w-full" />
-              <div className="h-pix font-light text-xs text-white/60">
+              <div className="h-pix font-light text-sm text-white/60">
                 <div className="md:w-[310px] pl-4">
                   <p className="leading-[200%]">
-                    Here's my resume. I'm currently open to opportunities in software engineering,
-                    product design, and chemical engineering.
-                    <br />
-                    <br />
-                    Feel free to download it or reach out to me if you'd like to chat!
+                    Here's a collection of my life's greatest hits and achievements.
+                    Including that time I became the Pizza Party King! 🍕
                   </p>
                 </div>
               </div>
             </div>
-            {/* Download Button */}
-            <a 
-              href="/Anderson-Chen-2025-Feb-16.pdf" 
-              download
-              className="inline-block px-6 py-3 mt-4 text-white/70 border border-white/20 
-                rounded-full font-medium hover:bg-white/5 transition-colors text-center"
-            >
-              Download PDF
-            </a>
           </div>
         </div>
 
-        {/*Right Section - PDF Viewer*/}
-        <div className="w-full md:w-[calc(100%-340px)] h-[80vh] bg-zinc-900 rounded-lg overflow-hidden">
-          <iframe
-            src="/Anderson-Chen-2025-Feb-16.pdf#view=FitH"
-            className="w-full h-full"
-            style={{ border: 'none' }}
-          />
+        {/*Right Section - Timeline*/}
+        <div className="w-full md:w-[calc(100%-340px)] bg-zinc-900 rounded-lg p-8">
+          <div className="space-y-8 text-white/80">
+            <TimelineEvent year="2003" text="Born on December 9th! 🎉" />
+            <TimelineEvent year="2010" text="Successfully conquered the tallest tree in my 小區. Tree climbing champion of 2nd grade! 🌳" />
+            <TimelineEvent year="2013" text="Big move from Beijing to Kaohsiung! 北京 ✈️ 高雄" />
+            <TimelineEvent year="2014" text="成功獲得國小閱冠王之稱，並且受邀到閱冠王pizza party 👑🍕" />
+            <TimelineEvent year="2015" text="Graduated from elementary school! Goodbye, childhood! 🎓" />
+            <TimelineEvent year="2015" text="New chapter begins at KAS 📚" />
+            <TimelineEvent year="2021" text='Graduated with the prestigious "Most Likely to Become a Telephone Pole" award 📱' />
+            <TimelineEvent year="Present" text="Studying Chemical Engineering at NTUsg 🧪" />
+          </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function TimelineEvent({ year, text }: { year: string; text: string }) {
+  return (
+    <div className="flex gap-6 items-start">
+      <div className="w-20 flex-shrink-0 font-mono text-white/40">{year}</div>
+      <div className="flex-1">{text}</div>
     </div>
   );
 }
