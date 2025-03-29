@@ -2,7 +2,7 @@ export default function Currentlyat() {
     return ( 
         <div className="space-y-4 p-4">
             {/* Header Section */}
-            <h2 className="text-sm font-medium mb-4 text-white/80">What I'm up to:</h2>
+            <h2 className="text-sm font-medium mb-4 text-white/80">What I&apos;m up to:</h2>
 
             {/* Activity List */}
             <ul className="space-y-3">
