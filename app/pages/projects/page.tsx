@@ -1,13 +1,17 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import Currentlyat from "@/app/little-stuff/currentlyat";
 
+// Move constants outside component
+const PHOTOGRAPHY_INDICES = [3, 0, 1, 2, 4, 6, 7, 8, 9, 11, 12];
+const ARTWORKS_INDICES = [1, 2, 3, 4];
+
 export default function Projects() {
-  const [headerSize, setHeaderSize] = useState(1);
+  const [headerSize] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
   const [selectedImage, setSelectedImage] = useState<{
     num: number;
@@ -18,8 +22,6 @@ export default function Projects() {
   >("photography");
   const [currentIndices, setCurrentIndices] = useState<number[]>([]);
 
-  const photographyIndices = [3, 0, 1, 2, 4, 6, 7, 8, 9, 11, 12];
-  const artworksIndices = [1, 2, 3, 4];
   const transition = {
     duration: 0.3,
     delay: 0.2,
@@ -27,7 +29,7 @@ export default function Projects() {
   };
 
   useEffect(() => {
-    setCurrentIndices(activeGallery === "photography" ? photographyIndices : artworksIndices);
+    setCurrentIndices(activeGallery === "photography" ? PHOTOGRAPHY_INDICES : ARTWORKS_INDICES);
   }, [activeGallery]);
 
   const scroll = (direction: "left" | "right") => {
