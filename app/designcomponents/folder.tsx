@@ -9,7 +9,6 @@ interface FolderProps {
 
 const Folder: React.FC<FolderProps> = ({
   name = "projects folder",
-  height = 28,
   primaryColor = "bg-zinc-200",
   secondaryColor = "bg-zinc-100",
   perspective = 1500,
