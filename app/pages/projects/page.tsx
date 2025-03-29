@@ -1,13 +1,10 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import Currentlyat from "@/app/little-stuff/currentlyat";
-import DynamicFrameLayout from "@/designcomposnent/DynamicFrameLayout";
-import Folder from "@/app/designcomponents/folder";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import {SidebarProvider, SidebarTrigger} from "@/components/ui/sidebar"
-
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import Currentlyat from "@/app/little-stuff/currentlyat";
 
 export default function Projects() {
   const [headerSize, setHeaderSize] = useState(1);
@@ -74,13 +71,13 @@ export default function Projects() {
             <div className="h-pix font-light text-xs text-white/60">
               <div className="md:w-[310px] pl-4">
                 <p className="leading-[200%]">
-                  Hi! I'm Anderson, I was an aspiring artist who decided to
+                  Hi! I&apos;m Anderson, I was an aspiring artist who decided to
                   pursue a career in chemical engineering 5 months before high
                   school graduation because I fell in love with differential
                   equation and biology. In college, I had to study classes like
                   organic chemistry, physics with no prior knowledge from high
                   school, but these experiences helped me to build a system for
-                  learning and adapting to new knowledge fast. I'm currently
+                  learning and adapting to new knowledge fast. I&apos;m currently
                   teaching myself how to code and design things people want.
                   Taking a gap year from 2025 July to 2026 July to fully invest
                   myself in the world of tech!
