@@ -1,11 +1,10 @@
 import React from "react";
 
 interface FolderProps {
-  name? : string;
-  height? : number;
-  primaryColor? : string;
-  secondaryColor? :string;
-  perspective? :number;
+  name?: string;
+  primaryColor?: string;
+  secondaryColor?: string;
+  perspective?: number;
 }
 
 const Folder: React.FC<FolderProps> = ({

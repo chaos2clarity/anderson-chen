@@ -27,9 +27,7 @@ export default function Projects() {
   };
 
   useEffect(() => {
-    const currentIndices =
-      activeGallery === "photography" ? photographyIndices : artworksIndices;
-    setCurrentIndices(currentIndices);
+    setCurrentIndices(activeGallery === "photography" ? photographyIndices : artworksIndices);
   }, [activeGallery]);
 
   const scroll = (direction: "left" | "right") => {

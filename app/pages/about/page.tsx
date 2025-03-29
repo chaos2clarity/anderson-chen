@@ -15,7 +15,7 @@ export default function Resume() {
               <div className="h-pix font-light text-xs text-white/60">
                 <div className="md:w-[310px] pl-4">
                   <p className="leading-[200%]">
-                    Hi there, I'm Anderson. 
+                    Hi there, I&apos;m Anderson. 
                     <br />
                     <br />
                     

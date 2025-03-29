@@ -15,7 +15,7 @@ export default function Resume() {
               <div className="h-pix font-light text-sm text-white/60">
                 <div className="md:w-[310px] pl-4">
                   <p className="leading-[200%]">
-                    Here's a collection of my life's greatest hits and achievements.
+                    Here&apos;s a collection of my life&apos;s greatest hits and achievements.
                     Including that time I became the Pizza Party King! 🍕
                   </p>
                 </div>
