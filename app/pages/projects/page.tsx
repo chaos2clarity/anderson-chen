@@ -1,9 +1,8 @@
 "use client";
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import Currentlyat from "@/app/little-stuff/currentlyat";
 
 // Move constants outside component
