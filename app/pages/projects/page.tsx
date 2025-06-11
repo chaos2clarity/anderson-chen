@@ -45,222 +45,290 @@ export default function Projects() {
   };
 
   return (
-    <div className="min-h-screen bg-[#141414] flex items-center justify-center p-8">
-      <div className="w-full h-full flex flex-col md:flex-row items-start gap-8 md:gap-8">
-        {/*Left Section*/}
-        <div className="w-full md:w-[300px] flex-shrink-0 flex flex-col justify-between h-full">
-          <div className="flex flex-col gap-5">
-            <h1
-              className="text-4xl md:text-6xl font-light 
-            space-y-4 italic text-white/80 tracking-tighter leading-[130%]"
-              style={{ fontSize: `${4 * headerSize}rem` }}
-            >
-              Anderson Chen
-            </h1>
-            <h2 className="text-sm font-light text-white/80 text-center pt-6">
-              <b>Chemical Engineering & Business</b> at{" "}
-              <p className="hover:text-red-400">
-                Nanyang Technological University & EPFL
-              </p>
-            </h2>
-            <div className="space-y-4 pt-6">
-              <div className="h-px bg-white/10 w-full" />
-              <Currentlyat />
-            </div>
-            <div className="h-pix font-light text-xs text-white/60">
-              <div className="md:w-[310px] pl-4">
-                <p className="leading-[200%]">
-                  Hi! I&apos;m Anderson, I was an aspiring artist who decided to
-                  pursue a career in chemical engineering 5 months before high
-                  school graduation because I fell in love with differential
-                  equation and biology. In college, I had to study classes like
-                  organic chemistry, physics with no prior knowledge from high
-                  school, but these experiences helped me to build a system for
-                  learning and adapting to new knowledge fast. I&apos;m currently
-                  teaching myself how to code and design things people want.
-                  Taking a gap year from 2025 July to 2026 July to fully invest
-                  myself in the world of tech!
-                  <br />
-                  <br />
-                  In my spare time, I like to {""}{" "}
-                  <a
-                    href="https://youtu.be/G4VDvKo2B8U"
-                    className="text-red-400 hover:text-red-200"
-                  >
-                    <b>listen & make podcasts</b>
-                  </a>
-                  , read history books, play basketball. and talk to different
-                  people. Sometimes I yap on my blog. Feel free to reach out to
-                  me :D
-                </p>
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      {/* Header Navigation */}
+      <header className="fixed top-0 left-0 right-0 z-40 p-6 md:p-8">
+        <div className="flex justify-between items-center">
+          <div className="text-sm font-light text-white/80">
+            Anderson Chen's Studio
+          </div>
+          
+          {/* Centered Navigation */}
+          <nav className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex space-x-8 text-sm font-light text-white/60">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <Link href="/pages/about" className="hover:text-white transition-colors">About</Link>
+            <Link href="/pages/projects" className="hover:text-white transition-colors">Projects</Link>
+            <Link href="/pages/blogs" className="hover:text-white transition-colors">Blog</Link>
+          </nav>
+          
+          <div className="text-sm font-light text-white/60">
+            Currently in Singapore • <span className="text-emerald-300 animate-pulse font-medium">Taipei</span> • Beijing 
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative pt-5 pb-16 px-6 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Main Title */}
+          <div className="relative mb-4">
+            <div className="flex items-start justify-center gap-12">
+              <div className="flex-1 max-w-none">
+                <h1 className="text-[18vw] sm:text-[16vw] md:text-[15vw] lg:text-[14vw] xl:text-[12vw] leading-[0.8] 
+                tracking-tighter font-light" style={{ marginTop: '10vh' }}>
+                  <span className="block">anderson</span>
+                  <span className="block">chen.</span>
+                </h1>
+                
+                {/* Subtitle - directly below name */}
+                <div className="mt-4 pt-8">
+                  <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl font-light leading-relaxed text-white/60">
+                    Hi, I'm Anderson, I'm an aspiring artist (or a social science major) who turned chemical engineer because I fell in love with science during my exploration of sports science papers in highschool. 
+                    I enjoy creating art pieces, playing basketball, and reading history books.  
+                  </p>
+                </div>
+
+                {/* Bullet Points - following subtitle */}
+                <div className="mt-6 pt-3">
+                  <ul className="space-y-4 text-sm md:text-base font-light leading-relaxed text-white/60">
+                    <li className="flex items-start gap-4 group">
+                      <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0 group-hover:shadow-lg group-hover:shadow-blue-400/50 transition-all duration-300"></div>
+                      <p>
+                        Chemical Engineering & Business student at{" "}
+                        <span className="underline decoration-blue-400 decoration-2 underline-offset-2 text-white/80 font-medium">
+                          NTU & EPFL
+                        </span>
+                      </p>
+                    </li>
+                    
+                    <li className="flex items-start gap-4 group">
+                      <div className="w-2 h-2 rounded-full bg-emerald-400 mt-2 flex-shrink-0 group-hover:shadow-lg group-hover:shadow-emerald-400/50 transition-all duration-300"></div>
+                      <p>
+                        Process Engineering Intern at{" "}
+                        <span className="underline decoration-emerald-400 decoration-2 underline-offset-2 text-white/80 font-medium">
+                          SHL Medical
+                        </span>
+                      </p>
+                    </li>
+                    
+                    <li className="flex items-start gap-4 group">
+                      <div className="w-2 h-2 rounded-full bg-orange-400 mt-2 flex-shrink-0 group-hover:shadow-lg group-hover:shadow-orange-400/50 transition-all duration-300"></div>
+                      <p>
+                        <span className="underline decoration-orange-400 decoration-2 underline-offset-2 text-white/80 font-medium">
+                          Student Athlete 
+                        </span> NTU Varsity Basketball (23-24), FIBA GRIT Asia 3x3 
+                      </p>
+                    </li>
+                    
+                    <li className="flex items-start gap-4 group">
+                      <div className="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0 group-hover:shadow-lg group-hover:shadow-purple-400/50 transition-all duration-300"></div>
+                      <p>
+                        Gap Year 2025-2026 |{" "}
+                        <span className="underline decoration-purple-400 decoration-2 underline-offset-2 text-white/80 font-medium">
+                          JGP Fellow #3
+                        </span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              {/* Illustration */}
+              <div className="hidden md:block flex-shrink-0">
+                <div className="w-[25vw] h-[35vw] lg:w-[30vw] lg:h-[40vw] relative">
+                  <Image
+                    src="/anderson-illustrator.svg.svg"
+                    alt="Anderson Chen illustration"
+                    fill
+                    className="object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
               </div>
             </div>
           </div>
+
+          
         </div>
+      </section>
 
-        {/*Right Section*/}
-        <div className="w-full md:w-[calc(100%-340px)] lg:w-[calc(100%-340px)] flex flex-col gap-8">
-          <div className="flex flex-row flex-start h-[29vh] gap-5">
-            <div className="flex flex-col gap-5 pt-7 px-7">
-              {/* Sections*/}
-              <a
-                className="text-white/60 hover:text-sky-200/80 font text-3xl italic"
-                href="/pages/about"
-              >
-                about me
-              </a>
-
-              <a
-                className="text-white/60 hover:text-emerald-200/80 font text-3xl italic"
-                href="/pages/chemical engineering"
-              >
-                chemical engineering
-              </a>
-              <a
-                className="text-white/60 hover:text-amber-200/80 font text-3xl italic"
-                href="/pages/arts"
-              >
-                arts & photography
-              </a>
-              <a
-                className="text-white/60 hover:text-pink-200/80 font text-3xl italic"
-                href="/pages/projects"
-              >
-                readings
-              </a>
-              <a
-                className="text-white/60 hover:text-indigo-200/80 font text-3xl italic"
-                href="/pages/resume"
-              >
-                experiences
-              </a>
-              <a
-                className="text-white/60 hover:text-red-300/80 font text-3xl italic"
-                href="/pages/blogs"
-              >
-                blogs
-              </a>
+      {/* Gallery Section */}
+      <section className="relative px-10 md:px-20">
+        <div className="max-w-8xl lg:mx-32 md:mx-20 sm:mx-auto">
+          <div className="w-full h-[1px] bg-white/20 mb-12"></div>
+          {/* Gallery Header */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-light mb-4">
+                Creative Works
+              </h2>
+              <p className="text-white/60 text-sm md:text-base max-w-md">
+                A collection of my photography and artistic expressions, 
+                capturing moments and creating visual stories.
+              </p>
             </div>
-            <div className="justify-between gap-5"></div>
+            {/* Gallery Toggle */}
+            <div className="flex items-center space-x-8">
+              <button
+                onClick={() => setActiveGallery("photography")}
+                className={`text-xl md:text-2xl font-light transition-all duration-300 ${
+                  activeGallery === "photography"
+                    ? "text-white border-b-2 border-blue-400"
+                    : "text-white/40 hover:text-white/80"
+                }`}
+              >
+                Photography
+              </button>
+              <button
+                onClick={() => setActiveGallery("artworks")}
+                className={`text-xl md:text-2xl font-light transition-all duration-300 ${
+                  activeGallery === "artworks"
+                    ? "text-white border-b-2 border-green-400"
+                    : "text-white/40 hover:text-white/80"
+                }`}
+              >
+                Artworks
+              </button>
+            </div>
           </div>
-          {/* top right section*/}
 
-          {/* Horizontal Gallery with Navigation */}
-          <div className="relative w-full mt-20">
-            <div className="items-center flex relative justify-center">
-              <Link
-                className="text-sm text-white/60 hover:text-white/90 transition-colors"
-                href="/pages/arts"
-              >
-                see full gallery
-              </Link>
-            </div>
-
+          {/* Gallery Container */}
+          <div className="relative">
             <div
               ref={containerRef}
-              className="flex overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory w-full"
+              className="flex overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory"
               style={{ scrollBehavior: "smooth" }}
             >
               <div className="flex gap-6 p-4 min-w-max">
-                {currentIndices.map((num) => (
-                  <div
+                {currentIndices.map((num, index) => (
+                  <motion.div
                     key={num}
-                    className="relative w-[17vw] 
-                    min-w-[260px] max-w-[400px] aspect-[3/4] flex-shrink-0 snap-center cursor-pointer"
-                    onClick={() =>
-                      setSelectedImage({
-                        num,
-                        type: activeGallery,
-                      })
-                    }
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="relative group"
                   >
-                    <Image
-                      src={`/${activeGallery === "photography" ? "photo" : "artworks"}${num}.jpg`}
-                      alt={`${activeGallery === "photography" ? "Photo" : "Artwork"} ${num}`}
-                      fill
-                      className="object-cover rounded-lg hover:scale-[1.02] transition-transform duration-300"
-                    />
-                  </div>
+                    <div
+                      className="relative w-[20vw] min-w-[280px] max-w-[400px] aspect-[3/4] 
+                      flex-shrink-0 snap-center cursor-pointer overflow-hidden rounded-2xl
+                      hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500"
+                      onClick={() =>
+                        setSelectedImage({
+                          num,
+                          type: activeGallery,
+                        })
+                      }
+                    >
+                      <Image
+                        src={`/${activeGallery === "photography" ? "photo" : "artworks"}${num}.jpg`}
+                        alt={`${activeGallery === "photography" ? "Photo" : "Artwork"} ${num}`}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent 
+                        opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
 
-            {/* Image Modal */}
-            <AnimatePresence>
-              {selectedImage !== null && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={transition}
-                  className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
-                  onClick={() => setSelectedImage(null)}
-                >
-                  <div className="relative w-[80vw] h-[80vh]">
-                    <Image
-                      src={`/${selectedImage.type === "photography" ? "photo" : "artworks"}${selectedImage.num}.jpg`}
-                      alt={`${selectedImage.type === "photography" ? "Photo" : "Artwork"} ${selectedImage.num}`}
-                      fill
-                      className="object-contain"
-                      quality={100}
-                    />
-                    <button
-                      className="absolute top-4 right-4 text-white/60 hover:text-white text-2xl"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedImage(null);
-                      }}
-                    >
-                      ×
-                    </button>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            {/* Navigation Arrows */}
-            <div className="flex justify-between w-full mt-4">
+            {/* Gallery Navigation */}
+            <div className="flex justify-between items-center mt-8">
               <button
                 onClick={() => scroll("left")}
-                className="px-4 py-2 text-white/60 hover:text-white/90 transition-colors text-2xl"
+                className="p-4 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 
+                transition-all duration-300 group"
               >
-                ←
+                <svg className="w-6 h-6 group-hover:scale-110 transition-transform" 
+                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
               </button>
-              <div className="">
-                <button
-                  onClick={() => setActiveGallery("photography")}
-                  className={`px-4 py-2 font-light 
-                    ${
-                      activeGallery === "photography"
-                        ? "text-white/90"
-                        : "text-white/60"
-                    } hover:text-white/90 transition-colors sm:text-sm md:text-xl`}
-                >
-                  photography.
-                </button>
 
-                <button
-                  onClick={() => setActiveGallery("artworks")}
-                  className={`px-4 py-2 font-light 
-                    ${
-                      activeGallery === "artworks"
-                        ? "text-white/90"
-                        : "text-white/60"
-                    } hover:text-white/90 transition-colors sm:text-sm md:text-xl`}
-                >
-                  artworks.
-                </button>
-              </div>
+              <Link
+                href="/pages/arts"
+                className="px-6 py-3 border border-white/20 rounded-full hover:bg-white/10 
+                transition-all duration-300 text-sm font-light"
+              >
+                View Full Gallery
+              </Link>
+
               <button
                 onClick={() => scroll("right")}
-                className="px-4 py-2 text-white/60 font-light hover:text-white/90 transition-colors sm:text-sm md:text-xl"
+                className="p-4 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 
+                transition-all duration-300 group"
               >
-                →
+                <svg className="w-6 h-6 group-hover:scale-110 transition-transform" 
+                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </button>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {selectedImage !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={transition}
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="relative w-[90vw] h-[90vh] max-w-6xl"
+            >
+              <Image
+                src={`/${selectedImage.type === "photography" ? "photo" : "artworks"}${selectedImage.num}.jpg`}
+                alt={`${selectedImage.type === "photography" ? "Photo" : "Artwork"} ${selectedImage.num}`}
+                fill
+                className="object-contain rounded-lg"
+                quality={100}
+              />
+              <button
+                className="absolute -top-12 right-0 text-white/60 hover:text-white 
+                text-4xl font-light transition-colors"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImage(null);
+                }}
+              >
+                ×
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Footer CTA */}
+      <section className="relative py-20 px-6 md:px-8 border-t border-white/10">
+        <div className="max-w-7xl mx-auto text-center">
+          <h3 className="text-2xl md:text-4xl font-light mb-6">
+            Let&apos;s create something amazing together
+          </h3>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+            <Link
+              href="/pages/about"
+              className="px-8 py-4 bg-blue-500 hover:bg-blue-600 rounded-full transition-colors text-sm font-medium"
+            >
+              Get to know me
+            </Link>
+            <Link
+              href="/pages/resume"
+              className="px-8 py-4 border border-white/20 hover:bg-white/10 rounded-full transition-colors text-sm font-light"
+            >
+              View my experience
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

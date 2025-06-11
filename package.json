@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sync-medium": "node scripts/sync-medium.js",
+    "sync-medium:watch": "node scripts/sync-medium.js --watch"
   },
   "dependencies": {
     "@next/font": "^14.2.15",
@@ -16,13 +18,17 @@
     "@radix-ui/react-tooltip": "^1.1.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dotted-map": "^2.2.3",
     "lucide-react": "^0.477.0",
-    "motion": "^12.4.7",
+    "motion": "^12.0.0-alpha.2",
     "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwind-merge": "^3.0.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwind-merge": "^3.3.0",
+    "tailwindcss-animate": "^1.0.7",
+    "rss-parser": "^3.13.0",
+    "node-cron": "^3.0.3",
+    "cheerio": "^1.0.0-rc.12"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
