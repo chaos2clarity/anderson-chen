@@ -1,9 +1,7 @@
-import Header from "./components/header";
 import "./globals.css";
 import { Inter, Press_Start_2P } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
-
 const pixelFont = Press_Start_2P({
   weight: "400",
   subsets: ["latin"],
@@ -23,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${pixelFont.variable}`}>
-        <main className="">{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );

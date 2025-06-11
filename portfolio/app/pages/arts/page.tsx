@@ -37,7 +37,7 @@ const Arts = () => {
                   <div className="md:w-[310px] pl-4">
                     <p className="leading-[200%]">
                       I started drawing when I was 3, and it has been my way of expressing myself.
-                      Here you'll find a collection of my artworks, from traditional mediums to digital art.
+                      Here you&apos;ll find a collection of my artworks, from traditional mediums to digital art.
                       Photography became another passion when I discovered how it could capture moments and emotions
                       in ways that complement my artistic vision.
                       <br />

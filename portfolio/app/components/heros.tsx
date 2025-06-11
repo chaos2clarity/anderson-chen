@@ -1,4 +1,5 @@
 "use client"
+import { motion } from "framer-motion"
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -19,15 +20,21 @@ const Heros = () => {
             {/* First section with floating island */}
             <section className="min-h-screen flex items-center relative">   
                 <div className="container mx-auto">
-                    <img 
-                        src="/mainisland.png" 
-                        alt="island1" 
+                    <motion.div
                         className="max-w-[70%] mx-auto h-auto animate-float-slow transition-transform duration-700"
                         style={{
                             transform: `translateY(-${scrollY * 0.2}px)`, // Reduced scroll speed
                             opacity: Math.max(1 - scrollY / (window.innerHeight * 0.8), 0)
                         }}
-                    />     
+                    >
+                        <Image 
+                            src="/mainisland.png" 
+                            alt="island1" 
+                            width={500}
+                            height={300}
+                            className="max-w-[70%] mx-auto h-auto animate-float-slow transition-transform duration-700"
+                        />     
+                    </motion.div>
                 </div>
             </section>
 
