@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sync-medium": "node scripts/sync-medium.js",
+    "sync-medium:watch": "node scripts/sync-medium.js --watch"
   },
   "dependencies": {
     "@next/font": "^14.2.15",
@@ -23,7 +25,10 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "rss-parser": "^3.13.0",
+    "node-cron": "^3.0.3",
+    "cheerio": "^1.0.0-rc.12"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Medium sync data (remove this line to track synced posts)
+# data/medium-posts.json
