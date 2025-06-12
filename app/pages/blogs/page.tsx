@@ -58,13 +58,13 @@ const Blogs = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="text-lg font-light text-white/80 hover:text-white transition-colors">
-              ‚Üê Anderson Chen
+              ‚Ü?Anderson Chen
             </Link>
             
             <div className="flex items-center space-x-8">
               <nav className="hidden md:flex space-x-6 text-sm font-light text-white/60">
                 <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                <Link href="/pages/projects" className="hover:text-white transition-colors">Projects</Link>
+                <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>
                 <Link href="/pages/arts" className="hover:text-white transition-colors">Arts</Link>
               </nav>
               
@@ -171,7 +171,7 @@ const Blogs = () => {
                               year: 'numeric',
                               month: 'long',
                               day: 'numeric'
-                            })} ‚Ä¢ {featuredPost.readTime} min read
+                            })} ‚Ä?{featuredPost.readTime} min read
                           </span>
                         </div>
                         
