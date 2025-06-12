@@ -137,7 +137,7 @@ export default function Projects() {
               <div className="hidden md:block flex-shrink-0">
                 <div className="w-[25vw] h-[35vw] lg:w-[30vw] lg:h-[40vw] relative">
                   <Image
-                    src="/anderson-illustrator.svg.svg"
+                    src="/anderson-illustration.svg"
                     alt="Anderson Chen illustration"
                     fill
                     className="object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
