@@ -3,14 +3,12 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import Currentlyat from "@/app/little-stuff/currentlyat";
 
 // Move constants outside component
-const PHOTOGRAPHY_INDICES = [3, 0, 1, 2, 4, 6, 7, 8, 9, 11, 12];
+const PHOTOGRAPHY_INDICES = [0, 1, 2, 3, 4, 6, 7, 8, 9, 11, 12];
 const ARTWORKS_INDICES = [1, 2, 3, 4];
 
 export default function Projects() {
-  const [headerSize] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
   const [selectedImage, setSelectedImage] = useState<{
     num: number;
@@ -19,7 +17,7 @@ export default function Projects() {
   const [activeGallery, setActiveGallery] = useState<
     "photography" | "artworks"
   >("photography");
-  const [currentIndices, setCurrentIndices] = useState<number[]>([]);
+  const [currentIndices, setCurrentIndices] = useState<number[]>(PHOTOGRAPHY_INDICES);
 
   const transition = {
     duration: 0.3,
@@ -50,7 +48,7 @@ export default function Projects() {
       <header className="fixed top-0 left-0 right-0 z-40 p-6 md:p-8">
         <div className="flex justify-between items-center">
           <div className="text-sm font-light text-white/80">
-            Anderson Chen's Studio
+            Anderson Chen&apos;s Studio
           </div>
           
           {/* Centered Navigation */}
@@ -83,7 +81,7 @@ export default function Projects() {
                 {/* Subtitle - directly below name */}
                 <div className="mt-4 pt-8">
                   <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl font-light leading-relaxed text-white/60">
-                    Hi, I'm Anderson, I'm an aspiring artist (or a social science major) who turned chemical engineer because I fell in love with science during my exploration of sports science papers in highschool. 
+                    Hi, I&apos;m Anderson, I&apos;m an aspiring artist (or a social science major) who turned chemical engineer because I fell in love with science during my exploration of sports science papers in highschool. 
                     I enjoy creating art pieces, playing basketball, and reading history books.  
                   </p>
                 </div>
@@ -141,6 +139,7 @@ export default function Projects() {
                     alt="Anderson Chen illustration"
                     fill
                     className="object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                    priority
                   />
                 </div>
               </div>
@@ -201,7 +200,7 @@ export default function Projects() {
               <div className="flex gap-6 p-4 min-w-max">
                 {currentIndices.map((num, index) => (
                   <motion.div
-                    key={num}
+                    key={`${activeGallery}-${num}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
@@ -223,6 +222,7 @@ export default function Projects() {
                         alt={`${activeGallery === "photography" ? "Photo" : "Artwork"} ${num}`}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        sizes="(max-width: 768px) 280px, (max-width: 1200px) 20vw, 400px"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent 
                         opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -238,6 +238,7 @@ export default function Projects() {
                 onClick={() => scroll("left")}
                 className="p-4 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 
                 transition-all duration-300 group"
+                aria-label="Scroll left"
               >
                 <svg className="w-6 h-6 group-hover:scale-110 transition-transform" 
                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -257,6 +258,7 @@ export default function Projects() {
                 onClick={() => scroll("right")}
                 className="p-4 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 
                 transition-all duration-300 group"
+                aria-label="Scroll right"
               >
                 <svg className="w-6 h-6 group-hover:scale-110 transition-transform" 
                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -291,6 +293,7 @@ export default function Projects() {
                 fill
                 className="object-contain rounded-lg"
                 quality={100}
+                sizes="90vw"
               />
               <button
                 className="absolute -top-12 right-0 text-white/60 hover:text-white 
@@ -299,6 +302,7 @@ export default function Projects() {
                   e.stopPropagation();
                   setSelectedImage(null);
                 }}
+                aria-label="Close modal"
               >
                 ×
               </button>
