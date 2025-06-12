@@ -102,7 +102,7 @@ export default function Projects() {
           {/* Centered Navigation */}
           <nav className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex space-x-8 text-sm font-light text-white/60">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <Link href="/pages/projects" className="hover:text-white transition-colors">Projects</Link>
+            <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>
             <Link href="/pages/arts" className="hover:text-white transition-colors">Arts</Link>
             <Link href="/pages/blogs" className="hover:text-white transition-colors">Blog</Link>
           </nav>

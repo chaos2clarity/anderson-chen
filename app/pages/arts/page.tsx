@@ -66,7 +66,7 @@ const Arts = () => {
               <nav className="hidden md:flex space-x-6 text-sm font-light text-white/60">
                 <Link href="/" className="hover:text-white transition-colors">Home</Link>
                 <Link href="/pages/about" className="hover:text-white transition-colors">About</Link>
-                <Link href="/pages/projects" className="hover:text-white transition-colors">Projects</Link>
+                <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>
               </nav>
               
               <div className="text-sm font-light text-white/60">
