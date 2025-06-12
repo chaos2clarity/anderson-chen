@@ -59,7 +59,7 @@ const Arts = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="text-lg font-light text-white/80 hover:text-white transition-colors">
-              ‚Ü?Anderson Chen
+              ‚Üê Anderson Chen
             </Link>
             
             <div className="flex items-center space-x-8">
@@ -96,7 +96,7 @@ const Arts = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed"
             >
-              A visual journey through my creative expression ‚Ä?from the streets of Asia 
+              A visual journey through my creative expression ‚Äî from the streets of Asia 
               to the quiet corners of my studio, capturing moments and creating worlds.
             </motion.p>
           </div>

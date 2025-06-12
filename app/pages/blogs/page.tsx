@@ -58,7 +58,7 @@ const Blogs = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="text-lg font-light text-white/80 hover:text-white transition-colors">
-              ‚Ü?Anderson Chen
+              ‚Üê Anderson Chen
             </Link>
             
             <div className="flex items-center space-x-8">
@@ -171,7 +171,7 @@ const Blogs = () => {
                               year: 'numeric',
                               month: 'long',
                               day: 'numeric'
-                            })} ‚Ä?{featuredPost.readTime} min read
+                            })} ‚Ä¢ {featuredPost.readTime} min read
                           </span>
                         </div>
                         
