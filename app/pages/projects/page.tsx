@@ -2,7 +2,6 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 
 // Move constants outside component
 const PHOTOGRAPHY_INDICES = [0, 1, 2, 3, 4, 6, 7, 8, 9, 11, 12];
@@ -18,12 +17,6 @@ export default function Projects() {
     "photography" | "artworks"
   >("photography");
   const [currentIndices, setCurrentIndices] = useState<number[]>(PHOTOGRAPHY_INDICES);
-
-  const transition = {
-    duration: 0.3,
-    delay: 0.2,
-    ease: [0, 0.71, 0.29, 1],
-  };
 
   useEffect(() => {
     setCurrentIndices(activeGallery === "photography" ? PHOTOGRAPHY_INDICES : ARTWORKS_INDICES);
@@ -145,8 +138,6 @@ export default function Projects() {
               </div>
             </div>
           </div>
-
-          
         </div>
       </section>
 
@@ -199,12 +190,10 @@ export default function Projects() {
             >
               <div className="flex gap-6 p-4 min-w-max">
                 {currentIndices.map((num, index) => (
-                  <motion.div
+                  <div
                     key={`${activeGallery}-${num}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="relative group"
+                    className="relative group opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
+                    style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div
                       className="relative w-[20vw] min-w-[280px] max-w-[400px] aspect-[3/4] 
@@ -227,7 +216,7 @@ export default function Projects() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent 
                         opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -271,45 +260,34 @@ export default function Projects() {
       </section>
 
       {/* Image Modal */}
-      <AnimatePresence>
-        {selectedImage !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={transition}
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50"
-            onClick={() => setSelectedImage(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="relative w-[90vw] h-[90vh] max-w-6xl"
+      {selectedImage !== null && (
+        <div
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative w-[90vw] h-[90vh] max-w-6xl">
+            <Image
+              src={`/${selectedImage.type === "photography" ? "photo" : "artworks"}${selectedImage.num}.jpg`}
+              alt={`${selectedImage.type === "photography" ? "Photo" : "Artwork"} ${selectedImage.num}`}
+              fill
+              className="object-contain rounded-lg"
+              quality={100}
+              sizes="90vw"
+            />
+            <button
+              className="absolute -top-12 right-0 text-white/60 hover:text-white 
+              text-4xl font-light transition-colors"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+              aria-label="Close modal"
             >
-              <Image
-                src={`/${selectedImage.type === "photography" ? "photo" : "artworks"}${selectedImage.num}.jpg`}
-                alt={`${selectedImage.type === "photography" ? "Photo" : "Artwork"} ${selectedImage.num}`}
-                fill
-                className="object-contain rounded-lg"
-                quality={100}
-                sizes="90vw"
-              />
-              <button
-                className="absolute -top-12 right-0 text-white/60 hover:text-white 
-                text-4xl font-light transition-colors"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedImage(null);
-                }}
-                aria-label="Close modal"
-              >
-                ×
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              ×
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Footer CTA */}
       <section className="relative py-20 px-6 md:px-8 border-t border-white/10">
