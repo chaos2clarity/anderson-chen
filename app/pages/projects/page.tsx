@@ -1,3 +1,4 @@
+"use client";
 import dynamic from 'next/dynamic';
 
 // Disable SSR for this component since it uses browser APIs
@@ -16,3 +17,4 @@ const ProjectsContent = dynamic(() => import('./ProjectsContent'), {
 export default function Projects() {
   return <ProjectsContent />;
 }
+
