@@ -3,6 +3,8 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import BottomEditorialLine from "@/components/ui/bottom-editorial-line";
+import FooterConnect from "@/components/footer-connect";
 
 // Location mappings from main page
 const PHOTOGRAPHY_LOCATIONS: Record<number, string> = {
@@ -85,8 +87,8 @@ const Arts = () => {
             <div className="flex items-center space-x-8">
               <nav className="hidden md:flex space-x-6 text-sm font-light text-white/60">
                 <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                <Link href="/pages/about" className="hover:text-white transition-colors">About</Link>
-                <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>
+                <Link href="/pages/projects" className="hover:text-white transition-colors">Projects</Link>
+                <Link href="/pages/blogs" className="hover:text-white transition-colors">Blogs</Link>
               </nav>
               
               <div className="text-sm font-light text-white/60">
@@ -313,22 +315,16 @@ const Arts = () => {
       </AnimatePresence>
 
       {/* Footer */}
-      <footer className="border-t border-white/10 py-12 px-6 md:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-white/40 text-sm mb-6">
-            © 2024 Anderson Chen. All artworks and photographs are original works.
-          </p>
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Home
-          </Link>
-        </div>
-      </footer>
+      
+      {/* Bottom Editorial Line */}
+      
+      <BottomEditorialLine />   
+
+      {/* Footer CTA */}
+      <section className="mt-10 pt-2 pb-10">
+        <FooterConnect /> 
+      </section>
+      
     </div>
   );
 };

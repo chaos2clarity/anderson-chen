@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { BlogPost } from "@/lib/blog";
+import FooterConnect from "@/components/footer-connect";
+import BottomEditorialLine from "@/components/ui/bottom-editorial-line";
 
 const Blogs = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -236,7 +238,7 @@ const Blogs = () => {
                               </div>
 
                               {/* Content */}
-                              <div className="relative z-10 flex flex-col h-full">
+                              <div className="relative z-5 flex-col h-full">
                                 <h3 className="text-lg md:text-xl font-light leading-tight mb-3 group-hover:text-white/90 transition-colors flex-grow">
                                   {post.title}
                                 </h3>
@@ -306,8 +308,17 @@ const Blogs = () => {
           )}
         </div>
       </section>
+
+      {/* Bottom Editorial Line */}
+      
+      <BottomEditorialLine />   
+
+      {/* Footer CTA */}
+      <section className="mt-10 pt-2 pb-10">
+        <FooterConnect /> 
+      </section>
     </div>
   );
-};
+}
 
 export default Blogs;
