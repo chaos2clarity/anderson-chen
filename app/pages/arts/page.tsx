@@ -4,26 +4,46 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Location mappings from main page
+const PHOTOGRAPHY_LOCATIONS: Record<number, string> = {
+  0: "Milan, Italy",
+  1: "Jungfrau, Switzerland",
+  2: "Paris, France",
+  3: "Lausanne, Switzerland",
+  4: "Paris, France",
+  6: "The Alps, Somwhere High Up",
+  7: "Oregon, United States",
+  8: "Zurich, Switzerland",
+  9: "EPFL Campus, Lausanne",
+  11: "Yilan, Taiwan",
+  12: "Singapore, Singapore"
+};
+
 // Image data with categories and locations
-const PHOTOGRAPHY_IMAGES = [
-  { id: 0, location: "Singapore", category: "urban", aspect: "portrait" },
-  { id: 1, location: "Tokyo", category: "street", aspect: "landscape" },
-  { id: 2, location: "Seoul", category: "urban", aspect: "portrait" },
-  { id: 3, location: "Taipei", category: "street", aspect: "landscape" },
-  { id: 4, location: "Bangkok", category: "culture", aspect: "portrait" },
-  { id: 6, location: "Hong Kong", category: "urban", aspect: "landscape" },
-  { id: 7, location: "Kuala Lumpur", category: "architecture", aspect: "portrait" },
-  { id: 8, location: "Manila", category: "street", aspect: "landscape" },
-  { id: 9, location: "Jakarta", category: "culture", aspect: "portrait" },
-  { id: 11, location: "Ho Chi Minh", category: "street", aspect: "landscape" },
-  { id: 12, location: "Hanoi", category: "culture", aspect: "portrait" },
+const photography_template = [
+  { id: 0, category: "people", aspect: "portrait" },
+  { id: 1, category: "nature", aspect: "landscape" },
+  { id: 2, category: "urban", aspect: "portrait" },
+  { id: 3, category: "nature", aspect: "landscape" },
+  { id: 4, category: "urban", aspect: "portrait" },
+  { id: 6, category: "nature", aspect: "landscape" },
+  { id: 7, category: "people", aspect: "portrait" },
+  { id: 8, category: "urban", aspect: "landscape" },
+  { id: 9, category: "nature", aspect: "portrait" },
+  { id: 11, category: "people", aspect: "landscape" },
+  { id: 12, category: "urban", aspect: "portrait" },
 ];
 
+const PHOTOGRAPHY_IMAGES = photography_template.map(img => ({
+  ...img,
+  location: PHOTOGRAPHY_LOCATIONS[img.id] || "Unknown Location"
+}));
+
 const ARTWORK_IMAGES = [
-  { id: 1, location: "Studio", category: "digital", aspect: "square" },
-  { id: 2, location: "Studio", category: "traditional", aspect: "portrait" },
-  { id: 3, location: "Studio", category: "mixed", aspect: "landscape" },
-  { id: 4, location: "Studio", category: "digital", aspect: "square" },
+  { id: 1, location: "封建社會 - 女 (2022)", category: "mixed", aspect: "square" },
+  { id: 2, location: "封建社會 - 男 (2022)", category: "mixed", aspect: "portrait" },
+  { id: 3, location: "夜 (2022)", category: "traditional", aspect: "landscape" },
+  { id: 4, location: "地鐵 (2022)", category: "traditional", aspect: "square" },
 ];
 
 const Arts = () => {
@@ -136,7 +156,7 @@ const Arts = () => {
               className="flex justify-center mb-12"
             >
               <div className="flex flex-wrap justify-center gap-3">
-                {["all", "street", "urban", "culture", "architecture", "digital", "traditional", "mixed"].map((filterOption) => (
+                {["all", "urban", "nature", "people", "digital", "traditional", "mixed"].map((filterOption) => (
                   <button
                     key={filterOption}
                     onClick={() => setFilter(filterOption)}

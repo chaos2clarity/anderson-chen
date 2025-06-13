@@ -151,29 +151,26 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="prose prose-invert prose-lg max-w-none"
+            className="prose prose-invert prose-lg max-w-none 
+                       prose-headings:font-light prose-headings:text-white 
+                       prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-12
+                       prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-10 prose-h2:text-white/90
+                       prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-8 prose-h3:text-white/80
+                       prose-p:text-white/70 prose-p:leading-relaxed prose-p:mb-6
+                       prose-strong:text-white prose-strong:font-medium
+                       prose-em:text-white/80
+                       prose-blockquote:border-l-emerald-400 prose-blockquote:bg-emerald-400/5 
+                       prose-blockquote:p-4 prose-blockquote:rounded-r-lg prose-blockquote:my-8
+                       prose-code:bg-white/10 prose-code:px-2 prose-code:py-1 prose-code:rounded 
+                       prose-code:text-emerald-300 prose-code:text-sm
+                       prose-pre:bg-white/5 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-lg
+                       prose-ul:text-white/70 prose-ol:text-white/70
+                       prose-li:mb-2
+                       prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline prose-a:transition-all"
+            dangerouslySetInnerHTML={{ 
+              __html: marked(post.content.replace(/^# /gm, '## ')) // Convert markdown to HTML, and convert H1 to H2
+            }}
           >
-            {/* Custom Prose Styles */}
-            <div 
-              className="prose-headings:font-light prose-headings:text-white 
-                         prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-12
-                         prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-10 prose-h2:text-white/90
-                         prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-8 prose-h3:text-white/80
-                         prose-p:text-white/70 prose-p:leading-relaxed prose-p:mb-6
-                         prose-strong:text-white prose-strong:font-medium
-                         prose-em:text-white/80
-                         prose-blockquote:border-l-emerald-400 prose-blockquote:bg-emerald-400/5 
-                         prose-blockquote:p-4 prose-blockquote:rounded-r-lg prose-blockquote:my-8
-                         prose-code:bg-white/10 prose-code:px-2 prose-code:py-1 prose-code:rounded 
-                         prose-code:text-emerald-300 prose-code:text-sm
-                         prose-pre:bg-white/5 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-lg
-                         prose-ul:text-white/70 prose-ol:text-white/70
-                         prose-li:mb-2
-                         prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline prose-a:transition-all"
-              dangerouslySetInnerHTML={{ 
-                __html: marked(post.content.replace(/^# /gm, '## ')) // Convert markdown to HTML, and convert H1 to H2
-              }}
-            />
           </motion.article>
 
           {/* Footer Navigation */}

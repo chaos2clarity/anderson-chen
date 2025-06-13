@@ -205,8 +205,8 @@ export default function Projects() {
       </section>
 
       {/* Gallery Section */}
-      <section className="relative px-10 md:px-20">
-        <div className="max-w-8xl lg:mx-32 md:mx-20 sm:mx-auto">
+      <section className="relative px-6 lg:px-28">
+        <div className="max-w-8xl mx-auto">
           <div className="w-full h-[1px] bg-white/20 mb-12"></div>
           {/* Gallery Header */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
@@ -375,15 +375,15 @@ export default function Projects() {
       </AnimatePresence>
 
       {/* Side-by-Side: Magazine Blog & Projects */}
-      <section className="relative py-24 px-6 md:px-8">
-        <div className="max-w-8xl mx-32">
+      <section className="relative py-24 px-6 lg:px-28">
+        <div className="max-w-8xl mx-auto">
           <div className="w-full h-[1px] bg-white/20 mb-16"></div>
           
           {/* Two-Column Layout */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 xl:gap-16">
             
             {/* Blog Section - Left Column (3/5 width) */}
-            <div className="md:col-span-3 lg:mx-10 md:mx-10 sm:mx-auto">
+            <div className="md:col-span-3">
               {/* Editorial Header */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -582,7 +582,7 @@ export default function Projects() {
             </div>
 
             {/* Projects Section - Right Column (2/5 width) */}
-            <div className="md:col-span-2 lg:mx-10 md:mx-10 sm:mx-auto">
+            <div className="md:col-span-2">
               {/* Projects Header */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
