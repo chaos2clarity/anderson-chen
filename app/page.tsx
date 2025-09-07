@@ -535,7 +535,7 @@ export default function Page() {
                       </div>
                       <div className="relative aspect-[3/2] rounded-lg overflow-hidden">
                         <Image
-                          src="/sidequests/sidequest-host3.jpg"
+                          src="/sidequests/sidequesthost-3.jpg"
                           alt="Host Performance 3"
                           fill
                           className="object-cover"
@@ -923,27 +923,28 @@ export default function Page() {
                  
                  {/* Side Quest Photo Grid */}
                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                   {/* VC Due Diligence */}
+                   {/* Mathy */}
                    <motion.div
                      initial={{ opacity: 0, scale: 0.95 }}
                      whileInView={{ opacity: 1, scale: 1 }}
                      transition={{ duration: 0.5, delay: 0.9 }}
                      viewport={{ once: true }}
                      className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
-                     onClick={() => setSelectedSideQuest('vc')}
+                     onClick={() => setSelectedSideQuest('minerva')}
                    >
-                     <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
-                       <span className="text-2xl font-light text-white/80">
-                         VC
-                       </span>
-                     </div>
+                     <Image
+                       src="/sidequests/Group 6.png"
+                       alt="Minerva Application Prep"
+                       fill
+                       className="object-cover transition-transform duration-700 group-hover:scale-110"
+                     />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                      <div className="absolute bottom-0 left-0 right-0 p-4">
                        <h4 className="text-sm md:text-base font-light text-white mb-1">
-                         Scout @ Family Office
+                         Mathy
                        </h4>
                        <p className="text-xs text-white/70">
-                         Late stage VC investments in tech & infrastructure. 
+                         Preparing for university transfer application
                        </p>
                      </div>
                    </motion.div>
@@ -1000,28 +1001,27 @@ export default function Page() {
                      </div>
                    </motion.div>
 
-                   {/* Minerva Prep */}
+                   {/* VC Due Diligence */}
                    <motion.div
                      initial={{ opacity: 0, scale: 0.95 }}
                      whileInView={{ opacity: 1, scale: 1 }}
                      transition={{ duration: 0.5, delay: 1.2 }}
                      viewport={{ once: true }}
                      className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
-                     onClick={() => setSelectedSideQuest('minerva')}
+                     onClick={() => setSelectedSideQuest('vc')}
                    >
-                     <Image
-                       src="/sidequests/Group 6.png"
-                       alt="Minerva Application Prep"
-                       fill
-                       className="object-cover transition-transform duration-700 group-hover:scale-110"
-                     />
+                     <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
+                       <span className="text-2xl font-light text-white/80">
+                         VC
+                       </span>
+                     </div>
                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                      <div className="absolute bottom-0 left-0 right-0 p-4">
                        <h4 className="text-sm md:text-base font-light text-white mb-1">
-                         Mathy
+                         Scout @ Family Office
                        </h4>
                        <p className="text-xs text-white/70">
-                         Preparing for university transfer application
+                         Late stage VC investments in tech & infrastructure. 
                        </p>
                      </div>
                    </motion.div>
@@ -1072,27 +1072,28 @@ export default function Page() {
 
           {/* Gallery Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 xl:gap-10">
-            {/* VC Due Diligence */}
+            {/* Mathy */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
               className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer"
-              onClick={() => setSelectedSideQuest('vc')}
+              onClick={() => setSelectedSideQuest('minerva')}
             >
-              <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
-                <span className="text-3xl font-light text-white/80">
-                  VC
-                </span>
-              </div>
+              <Image
+                src="/sidequests/sidequest-mathy-1.png"
+                alt="Minerva Application Prep"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <h3 className="text-xl xl:text-2xl font-light text-white mb-3 leading-tight">
-                Scout @ Family Office
+                  Mathy
                 </h3>
                 <p className="text-sm text-white/70 leading-relaxed">
-                  Late stage VC investments in tech & infrastructure. 
+                  Building leetcode for math with mathify.io co-founder Bennie. 
                 </p>
               </div>
             </motion.div>
@@ -1149,28 +1150,27 @@ export default function Page() {
               </div>
             </motion.div>
 
-            {/* Minerva Application */}
+            {/* VC Due Diligence */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
               className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer"
-              onClick={() => setSelectedSideQuest('minerva')}
+              onClick={() => setSelectedSideQuest('vc')}
             >
-              <Image
-                src="/sidequests/sidequest-mathy-1.png"
-                alt="Minerva Application Prep"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+              <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
+                <span className="text-3xl font-light text-white/80">
+                  VC
+                </span>
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <h3 className="text-xl xl:text-2xl font-light text-white mb-3 leading-tight">
-                  Mathy
+                Scout @ Family Office
                 </h3>
                 <p className="text-sm text-white/70 leading-relaxed">
-                  Building leetcode for math with mathify.io co-founder Bennie. 
+                  Late stage VC investments in tech & infrastructure. 
                 </p>
               </div>
             </motion.div>
