@@ -651,9 +651,9 @@ export default function Page() {
                     <div>
                       <h3 className="text-lg font-light text-white mb-3">Mathy</h3>
                       <p className="text-white/80 leading-relaxed">
-                        Building leetcode for math with mathify.io co-founder Bennie. 
+                        Building leetcode for math. 
                         I started a tutoring business in Aug 2024 and scaled it a business that runs automaticaly 
-                        and generates #3,000 MRR. I decided to leverage this experience to build something more meaningful. 
+                        and generates $3,000 MRR. I decided to leverage this experience to build something more meaningful. 
                       </p>
                     </div>
 
@@ -1093,7 +1093,7 @@ export default function Page() {
                   Mathy
                 </h3>
                 <p className="text-sm text-white/70 leading-relaxed">
-                  Building leetcode for math with mathify.io co-founder Bennie. 
+                  Building leetcode for math. 
                 </p>
               </div>
             </motion.div>
