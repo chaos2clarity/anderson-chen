@@ -458,41 +458,34 @@ export default function Page() {
                   </div>
 
                   {/* Image */}
-                  <div className="relative aspect-[2/1] mb-6 rounded-xl overflow-hidden">
-                    <Image
-                      src="/sidequests/sidequest-vc.jpg"
-                      alt="VC Scout @ Family Office"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  </div>
+                    <div className="relative aspect-[2/1] mb-6 rounded-xl bg-zinc-900 flex items-center justify-center">
+                      <span className="text-4xl md:text-5xl font-light text-white/80">
+                        VC
+                      </span>
+                    </div>
 
                   {/* Content */}
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-lg font-light text-white mb-3">What I'm doing</h3>
+                      <h3 className="text-lg font-light text-white mb-3">Deals screened</h3>
                       <p className="text-white/80 leading-relaxed">
-                        Participating in Series C funding rounds for promising startups in the US and China, focusing on AI and infrastructure sectors. This involves deep market analysis, founder interviews, and comprehensive due diligence processes.
+                      
+                        - AI surgery + robotics  ($100M raised in prev round)
+                        <br/>
+                        - Data center services company, invested by multiple chinese tech giants
+                        <br/>
+                        - Luxury travel & hospitality services startup
+                        <br/>
+                        - Entertaiment parks project in a SEA country
                       </p>
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-light text-white mb-3">Key learnings</h3>
-                      <ul className="space-y-2 text-white/80">
-                        <li className="flex items-start gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-white/40 mt-2 flex-shrink-0"></div>
-                          <span>Direct access to founders solving complex problems</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-white/40 mt-2 flex-shrink-0"></div>
-                          <span>Understanding market dynamics across different sectors</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-white/40 mt-2 flex-shrink-0"></div>
-                          <span>Exposure to high-growth startup environments</span>
-                        </li>
-                      </ul>
+                      <h3 className="text-lg font-light text-white mb-3">What I'm doing</h3>
+                      <p className="text-white/80 leading-relaxed">
+                        - I ask good questions to founders and 
+                        make things understandable for the chairman. 
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -939,23 +932,18 @@ export default function Page() {
                      className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
                      onClick={() => setSelectedSideQuest('vc')}
                    >
-                     <Image
-                       src="/sidequests/sidequest-vc.jpg"
-                       alt="VC Due Diligence Work"
-                       fill
-                       className="object-cover transition-transform duration-700 group-hover:scale-110"
-                     />
+                     <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
+                       <span className="text-2xl font-light text-white/80">
+                         VC
+                       </span>
+                     </div>
                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                      <div className="absolute bottom-0 left-0 right-0 p-4">
-                       <div className="flex items-center gap-2 mb-2">
-                         <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
-                         <span className="text-xs text-white/70 font-light">Active</span>
-                       </div>
                        <h4 className="text-sm md:text-base font-light text-white mb-1">
-                         VC Due Diligence
+                         Scout @ Family Office
                        </h4>
                        <p className="text-xs text-white/70">
-                         Series C funding rounds across AI & infrastructure
+                         Late stage VC investments in tech & infrastructure. 
                        </p>
                      </div>
                    </motion.div>
@@ -977,10 +965,6 @@ export default function Page() {
                      />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                      <div className="absolute bottom-0 left-0 right-0 p-4">
-                       <div className="flex items-center gap-2 mb-2">
-                         <div className="w-2 h-2 rounded-full bg-white/70"></div>
-                         <span className="text-xs text-white/70 font-light">Active. Next in Nov, 2025 @ China & Italy</span>
-                       </div>
                        <h4 className="text-sm md:text-base font-light text-white mb-1">
                          Billingual Host 
                        </h4>
@@ -1007,10 +991,6 @@ export default function Page() {
                      />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                      <div className="absolute bottom-0 left-0 right-0 p-4">
-                       <div className="flex items-center gap-2 mb-2">
-                         <div className="w-2 h-2 rounded-full bg-white/60"></div>
-                         <span className="text-xs text-white/70 font-light">Building</span>
-                       </div>
                        <h4 className="text-sm md:text-base font-light text-white mb-1">
                          CAS Sports Science
                        </h4>
@@ -1037,10 +1017,6 @@ export default function Page() {
                      />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                      <div className="absolute bottom-0 left-0 right-0 p-4">
-                       <div className="flex items-center gap-2 mb-2">
-                         <div className="w-2 h-2 rounded-full bg-white/60"></div>
-                         <span className="text-xs text-white/70 font-light">Preparing</span>
-                       </div>
                        <h4 className="text-sm md:text-base font-light text-white mb-1">
                          Mathy
                        </h4>
@@ -1070,14 +1046,28 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-light mb-6 tracking-tight">
-              side quests
-            </h2>
-            <p className="text-white/60 text-lg lg:text-xl font-light max-w-3xl mx-auto leading-relaxed">
-              experiments, explorations & ongoing projects that fuel my curiosity
-            </p>
+            <div className="flex items-start gap-6">
+              {/* Decorative Line */}
+              <motion.div
+                initial={{ height: 0 }}
+                whileInView={{ height: "60px" }}
+                transition={{ duration: 1, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="w-[2px] bg-white/40 mt-2"
+              ></motion.div>
+              
+              {/* Content */}
+              <div>
+                <h2 className="text-3xl lg:text-4xl font-light mb-4 tracking-tight">
+                  side quests
+                </h2>
+                <p className="text-white/60 text-base lg:text-lg font-light max-w-2xl leading-relaxed">
+                  experiments, explorations & ongoing projects that fuel my curiosity
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           {/* Gallery Grid */}
@@ -1091,23 +1081,18 @@ export default function Page() {
               className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer"
               onClick={() => setSelectedSideQuest('vc')}
             >
-              <Image
-                src="/sidequests/sidequest-vc.jpg"
-                alt="VC Due Diligence Work"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+              <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
+                <span className="text-3xl font-light text-white/80">
+                  VC
+                </span>
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-white animate-pulse"></div>
-                  <span className="text-sm text-white/70 font-light">Active</span>
-                </div>
                 <h3 className="text-xl xl:text-2xl font-light text-white mb-3 leading-tight">
-                  VC Due Diligence
+                Scout @ Family Office
                 </h3>
                 <p className="text-sm text-white/70 leading-relaxed">
-                  Series C funding rounds across AI & infrastructure startups in US and China
+                  Late stage VC investments in tech & infrastructure. 
                 </p>
               </div>
             </motion.div>
@@ -1129,10 +1114,6 @@ export default function Page() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-white/70"></div>
-                  <span className="text-sm text-white/70 font-light">Active</span>
-                </div>
                 <h3 className="text-xl xl:text-2xl font-light text-white mb-3 leading-tight">
                   Bilingual Host
                 </h3>
@@ -1159,10 +1140,6 @@ export default function Page() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-white/60"></div>
-                  <span className="text-sm text-white/70 font-light">Building</span>
-                </div>
                 <h3 className="text-xl xl:text-2xl font-light text-white mb-3 leading-tight">
                   CAS Sports Science
                 </h3>
@@ -1189,10 +1166,6 @@ export default function Page() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-white/60"></div>
-                  <span className="text-sm text-white/70 font-light">Preparing</span>
-                </div>
                 <h3 className="text-xl xl:text-2xl font-light text-white mb-3 leading-tight">
                   Mathy
                 </h3>
