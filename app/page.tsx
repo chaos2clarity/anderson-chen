@@ -458,8 +458,8 @@ export default function Page() {
                   </div>
 
                   {/* Image */}
-                    <div className="relative aspect-[2/1] mb-6 rounded-xl bg-zinc-900 flex items-center justify-center">
-                      <span className="text-4xl md:text-5xl font-light text-white/80">
+                    <div className="relative aspect-[2/1] mb-6 rounded-xl bg-white flex items-center justify-center">
+                      <span className="text-4xl md:text-5xl font-light text-black">
                         VC
                       </span>
                     </div>
@@ -1010,8 +1010,8 @@ export default function Page() {
                      className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
                      onClick={() => setSelectedSideQuest('vc')}
                    >
-                     <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
-                       <span className="text-2xl font-light text-white/80">
+                     <div className="absolute inset-0 bg-white flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
+                       <span className="text-2xl font-light text-black">
                          VC
                        </span>
                      </div>
@@ -1159,8 +1159,8 @@ export default function Page() {
               className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer"
               onClick={() => setSelectedSideQuest('vc')}
             >
-              <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
-                <span className="text-3xl font-light text-white/80">
+              <div className="absolute inset-0 bg-white flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
+                <span className="text-3xl font-light text-black">
                   VC
                 </span>
               </div>
