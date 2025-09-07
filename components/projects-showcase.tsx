@@ -81,7 +81,7 @@ const ProjectsShowcase = () => {
         </Link>
       </motion.div>
 
-      {/* Coming Soon Projects */}
+      {/* What's Next - Cal.com Link */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -89,19 +89,40 @@ const ProjectsShowcase = () => {
         viewport={{ once: true }}
         className="mt-6"
       >
-        <div className="p-4 border border-dashed border-white/20 rounded-xl">
-          <div className="text-center">
-            <div className="w-8 h-8 mx-auto mb-3 rounded-full bg-white/5 flex items-center justify-center">
-              <svg className="w-4 h-4 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
+        <Link href="https://cal.com/andersonchen/30min" target="_blank" rel="noopener noreferrer">
+          <div className="group p-4 border border-dashed border-white/20 rounded-xl hover:border-white/40 
+                         hover:bg-white/5 transition-all duration-300 cursor-pointer">
+            <div className="text-center">
+              <div className="w-8 h-8 mx-auto mb-3 rounded-full bg-white/5 flex items-center justify-center
+                            group-hover:bg-white/10 group-hover:scale-110 transition-all duration-300">
+                <svg className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors" 
+                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+              </div>
+              <h4 className="text-sm font-light text-white/70 mb-1 group-hover:text-white/90 transition-colors">
+                What's Next?
+              </h4>
+              <p className="text-xs text-white/50 group-hover:text-white/70 transition-colors">
+                <span className="hidden md:inline">Schedule a chat with me!</span>
+                <span className="md:hidden">Click here to schedule a coffee chat!</span>
+              </p>
+              
+              {/* Desktop-only booking CTA */}
+              <div className="hidden md:block mt-2 opacity-0 group-hover:opacity-100 
+                            transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                <div className="inline-flex items-center gap-1 text-emerald-400 text-xs font-light">
+                  <span>Book 30min</span>
+                  <svg className="w-3 h-3 transform group-hover:translate-x-0.5 transition-transform" 
+                       fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </div>
+              </div>
             </div>
-            <h4 className="text-sm font-light text-white/70 mb-1">What's Next?</h4>
-            <p className="text-xs text-white/50">
-              More projects coming soon!
-            </p>
           </div>
-        </div>
+        </Link>
       </motion.div>
     </div>
   )
