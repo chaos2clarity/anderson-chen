@@ -515,7 +515,7 @@ export default function Page() {
                     {/* Main Image */}
                     <div className="relative aspect-[2/1] mb-4 rounded-xl overflow-hidden">
                       <Image
-                        src="/sidequests/sidequest-host.jpg"
+                        src="/sidequests/sidequest-host.JPG"
                         alt="Bilingual Host Performance"
                         fill
                         className="object-cover"
@@ -527,7 +527,7 @@ export default function Page() {
                     <div className="grid grid-cols-2 gap-4">
                       <div className="relative aspect-[3/2] rounded-lg overflow-hidden">
                         <Image
-                          src="/sidequests/sidequest-host2.jpg"
+                          src="/sidequests/sidequest-host2.JPG"
                           alt="Host Performance 2"
                           fill
                           className="object-cover"
@@ -535,7 +535,7 @@ export default function Page() {
                       </div>
                       <div className="relative aspect-[3/2] rounded-lg overflow-hidden">
                         <Image
-                          src="/sidequests/sidequesthost-3.jpg"
+                          src="/sidequests/sidequesthost-3.JPG"
                           alt="Host Performance 3"
                           fill
                           className="object-cover"
@@ -944,7 +944,7 @@ export default function Page() {
                          Mathy
                        </h4>
                        <p className="text-xs text-white/70">
-                         Preparing for university transfer application
+                         Leetcode for math. 
                        </p>
                      </div>
                    </motion.div>
@@ -959,7 +959,7 @@ export default function Page() {
                      onClick={() => setSelectedSideQuest('host')}
                    >
                      <Image
-                       src="/sidequests/sidequest-host.jpg"
+                       src="/sidequests/sidequest-host.JPG"
                        alt="Host"
                        fill
                        className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -1108,7 +1108,7 @@ export default function Page() {
               onClick={() => setSelectedSideQuest('host')}
             >
               <Image
-                src="/sidequests/sidequest-host.jpg"
+                src="/sidequests/sidequest-host.JPG"
                 alt="Bilingual Host"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
