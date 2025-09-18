@@ -197,7 +197,7 @@ export default function Page() {
                       <li className="flex pt-2 items-start gap-4 group cursor-pointer">
                         <div className="w-2 h-2 rounded-full bg-emerald-400 mt-2 flex-shrink-0 group-hover:shadow-lg group-hover:shadow-emerald-400/50 transition-all duration-300"></div>
                         <p className="group-hover:text-white/80 transition-colors duration-300">
-                          Process Engineering Intern at{" "}
+                          Prev. Process Engineering at{" "}
                           <span className="underline decoration-emerald-400 decoration-2 underline-offset-2 text-white/80 font-medium group-hover:text-emerald-400 transition-colors duration-300">
                             SHL Medical
                           </span>
@@ -1134,7 +1134,7 @@ export default function Page() {
               onClick={() => setSelectedSideQuest('sports')}
             >
               <Image
-                src="/sidequests/sidequest-sports.jpg"
+                src="/sidequests/cassports.png"
                 alt="CAS Sports Science"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
