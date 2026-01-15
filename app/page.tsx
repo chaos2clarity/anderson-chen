@@ -655,9 +655,9 @@ export default function Page() {
               className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg bg-[#101010] border border-white/10 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="p-8 md:p-12">
+              <div className="p-5 md:p-12">
                  {/* Close Button */}
-                <div className="absolute top-4 right-4 z-10">
+                <div className="absolute top-4 right-4 z-20">
                   <button
                     onClick={() => setSelectedBlog(null)}
                     className="text-white/40 hover:text-white transition-colors"
@@ -667,10 +667,10 @@ export default function Page() {
                 </div>
 
                 {/* Header */}
-                <div className="mb-10">
+                <div className="mb-8 md:mb-10">
                    {/* Category Badge */}
-                   <div className="mb-6">
-                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium 
+                   <div className="mb-4 md:mb-6">
+                    <span className={`inline-flex items-center px-3 py-1 rounded-md text-sm font-medium 
                       ${selectedBlog.category === 'Gap Year' ? 'bg-emerald-400/10 text-emerald-400 border-emerald-400/20' :
                         selectedBlog.category === 'Career' ? 'bg-blue-400/10 text-blue-400 border-blue-400/20' :
                         selectedBlog.category === 'Life' ? 'bg-orange-400/10 text-orange-400 border-orange-400/20' :
@@ -679,7 +679,7 @@ export default function Page() {
                     </span>
                   </div>
 
-                  <h1 className="text-3xl md:text-5xl font-light leading-tight mb-6 text-white">
+                  <h1 className="text-xl md:text-4xl font-light leading-tight mb-6 text-white break-words">
                     {selectedBlog.title}
                   </h1>
 
@@ -709,25 +709,25 @@ export default function Page() {
                    <ReactMarkdown
                      remarkPlugins={[remarkGfm]}
                      components={{
-                       h1: ({node, ...props}) => <h2 className="text-3xl text-white/95 font-light mb-6 mt-12 first:mt-0" {...props} />,
-                       h2: ({node, ...props}) => <h3 className="text-2xl text-white/90 font-light mb-4 mt-10" {...props} />,
-                       h3: ({node, ...props}) => <h4 className="text-xl text-white/90 font-light mb-3 mt-8" {...props} />,
-                       p: ({node, ...props}) => <p className="text-[#B0B0B0] leading-relaxed mb-6 text-lg" {...props} />, // Softer white text
-                       ul: ({node, ...props}) => <ul className="list-disc list-outside ml-6 mb-6 text-[#B0B0B0] space-y-2" {...props} />,
-                       ol: ({node, ...props}) => <ol className="list-decimal list-outside ml-6 mb-6 text-[#B0B0B0] space-y-2" {...props} />,
+                       h1: ({node, ...props}) => <h2 className="text-xl md:text-3xl text-white/95 font-light mb-6 mt-10 first:mt-0 break-words" {...props} />,
+                       h2: ({node, ...props}) => <h3 className="text-lg md:text-2xl text-white/90 font-light mb-4 mt-8 break-words" {...props} />,
+                       h3: ({node, ...props}) => <h4 className="text-base md:text-xl text-white/90 font-light mb-3 mt-6 break-words" {...props} />,
+                       p: ({node, ...props}) => <p className="text-[#B0B0B0] leading-relaxed mb-6 text-sm md:text-lg break-words" {...props} />, // Softer white text
+                       ul: ({node, ...props}) => <ul className="list-disc list-outside ml-4 md:ml-6 mb-6 text-[#B0B0B0] space-y-2 text-sm md:text-lg pl-1" {...props} />,
+                       ol: ({node, ...props}) => <ol className="list-decimal list-outside ml-4 md:ml-6 mb-6 text-[#B0B0B0] space-y-2 text-sm md:text-lg pl-1" {...props} />,
                        li: ({node, ...props}) => <li className="pl-1" {...props} />,
-                       blockquote: ({node, ...props}) => <blockquote className="border-l-2 border-white/20 pl-6 py-2 my-8 text-white/60 italic leading-relaxed" {...props} />,
+                       blockquote: ({node, ...props}) => <blockquote className="border-l-2 border-white/20 pl-4 py-2 my-6 text-white/60 italic leading-relaxed text-sm md:text-lg" {...props} />,
                        code: ({node, ...props}: {node?: any, inline?: boolean, className?: string, children?: React.ReactNode} & React.HTMLAttributes<HTMLElement>) => {
                          const match = /language-(\w+)/.exec(props.className || '')
                          const isInline = !match && !String(props.children).includes('\n')
                          return isInline ?
-                           <code className="bg-white/10 px-1.5 py-0.5 rounded text-sm text-white/80 font-mono" {...props} /> :
-                           <div className="bg-[#151515] p-4 rounded-lg overflow-x-auto mb-6 border border-white/5 my-6">
-                             <code className="text-sm font-mono text-white/80" {...props} />
+                           <code className="bg-white/10 px-1.5 py-0.5 rounded text-xs text-white/80 font-mono break-words" {...props} /> :
+                           <div className="bg-[#151515] p-4 rounded-lg overflow-x-auto mb-6 border border-white/5 my-6 max-w-full">
+                             <code className="text-xs md:text-sm font-mono text-white/80" {...props} />
                            </div>
                        },
-                       a: ({node, ...props}) => <a className="text-white/90 underline decoration-white/30 underline-offset-4 hover:decoration-white/60 transition-colors" {...props} />,
-                       img: ({node, ...props}) => <img className="rounded-lg w-full my-8 border border-white/5" {...props} />,
+                       a: ({node, ...props}) => <a className="text-white/90 underline decoration-white/30 underline-offset-4 hover:decoration-white/60 transition-colors break-words" {...props} />,
+                       img: ({node, ...props}) => <img className="rounded-lg w-full max-w-full h-auto my-8 border border-white/5" {...props} />,
                        hr: ({node, ...props}) => <hr className="border-white/10 my-10" {...props} />
                      }}
                    >
