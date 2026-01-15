@@ -4,21 +4,21 @@
 
 @layer components {
   .pixel-text {
-    font-family: 'Press Start 2P', monospace;
+    font-family: "Press Start 2P", monospace;
     image-rendering: pixelated;
-    text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
     @apply transition-all duration-300 hover:transform hover:scale-110 cursor-default;
   }
 }
 
 /* Hide scrollbar but keep functionality */
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* Animation for gallery items */
@@ -70,7 +70,7 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 0 0% 3.9%;
+    --background: 0 0% 7%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -104,8 +104,6 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
-
-
 
 @layer base {
   * {
