@@ -1,9 +1,9 @@
 import "./globals.css";
-import { Inter, Press_Start_2P } from "next/font/google";
+import { Manrope, Press_Start_2P } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
-const inter = Inter({ subsets: ["latin"] });
+const manrope = Manrope({ subsets: ["latin"] });
 const pixelFont = Press_Start_2P({
   weight: "400",
   subsets: ["latin"],
@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${pixelFont.variable}`}>
+      <body className={`${manrope.className} ${pixelFont.variable}`}>
         <main>{children}</main>
         <SpeedInsights />
         <Analytics />

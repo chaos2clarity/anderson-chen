@@ -5,14 +5,11 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
-import { marked } from 'marked';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { BlogPost } from '@/lib/blog';
 
-// Configure marked options
-marked.setOptions({
-  breaks: true,
-  gfm: true,
-});
+
 
 // We'll need to make an API call since this is client-side
 async function getBlogPost(slug: string): Promise<BlogPost | null> {
@@ -46,7 +43,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="min-h-screen bg-background text-white flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-emerald-400"></div>
       </div>
     );
@@ -68,12 +65,12 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
   const categoryColor = getCategoryColor(post.category);
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-white">
       {/* Header Navigation */}
       <header className="fixed top-0 left-0 right-0 z-40 p-6 md:p-8 bg-black/80 backdrop-blur-sm border-b border-white/10">
         <div className="flex justify-between items-center max-w-6xl mx-auto">
           <Link href="/" className="text-sm font-light text-white/80 hover:text-white transition-colors">
-            Anderson Chen's Studio
+            Anderson Chen
           </Link>
           
           <Link 
@@ -147,31 +144,40 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
           </motion.div>
 
           {/* Article Content */}
-          <motion.article
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="prose prose-invert prose-lg max-w-none 
-                       prose-headings:font-light prose-headings:text-white 
-                       prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-12
-                       prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-10 prose-h2:text-white/90
-                       prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-8 prose-h3:text-white/80
-                       prose-p:text-white/70 prose-p:leading-relaxed prose-p:mb-6
-                       prose-strong:text-white prose-strong:font-medium
-                       prose-em:text-white/80
-                       prose-blockquote:border-l-emerald-400 prose-blockquote:bg-emerald-400/5 
-                       prose-blockquote:p-4 prose-blockquote:rounded-r-lg prose-blockquote:my-8
-                       prose-code:bg-white/10 prose-code:px-2 prose-code:py-1 prose-code:rounded 
-                       prose-code:text-emerald-300 prose-code:text-sm
-                       prose-pre:bg-white/5 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-lg
-                       prose-ul:text-white/70 prose-ol:text-white/70
-                       prose-li:mb-2
-                       prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline prose-a:transition-all"
-            dangerouslySetInnerHTML={{ 
-              __html: marked(post.content.replace(/^# /gm, '## ')) // Convert markdown to HTML, and convert H1 to H2
-            }}
+            className="font-light"
           >
-          </motion.article>
+             <ReactMarkdown
+               remarkPlugins={[remarkGfm]}
+               components={{
+                 h1: ({node, ...props}) => <h2 className="text-3xl text-white/95 font-light mb-6 mt-12 first:mt-0" {...props} />,
+                 h2: ({node, ...props}) => <h3 className="text-2xl text-white/90 font-light mb-4 mt-10" {...props} />,
+                 h3: ({node, ...props}) => <h4 className="text-xl text-white/90 font-light mb-3 mt-8" {...props} />,
+                 p: ({node, ...props}) => <p className="text-[#B0B0B0] leading-relaxed mb-6 text-lg" {...props} />, // Softer white text
+                 ul: ({node, ...props}) => <ul className="list-disc list-outside ml-6 mb-6 text-[#B0B0B0] space-y-2" {...props} />,
+                 ol: ({node, ...props}) => <ol className="list-decimal list-outside ml-6 mb-6 text-[#B0B0B0] space-y-2" {...props} />,
+                 li: ({node, ...props}) => <li className="pl-1" {...props} />,
+                 blockquote: ({node, ...props}) => <blockquote className="border-l-2 border-white/20 pl-6 py-2 my-8 text-white/60 italic leading-relaxed" {...props} />,
+                 code: ({node, ...props}: {node?: any, inline?: boolean, className?: string, children?: React.ReactNode} & React.HTMLAttributes<HTMLElement>) => {
+                   const match = /language-(\w+)/.exec(props.className || '')
+                   const isInline = !match && !String(props.children).includes('\n')
+                   return isInline ?
+                     <code className="bg-white/10 px-1.5 py-0.5 rounded text-sm text-white/80 font-mono" {...props} /> :
+                     <div className="bg-[#151515] p-4 rounded-lg overflow-x-auto mb-6 border border-white/5 my-6">
+                       <code className="text-sm font-mono text-white/80" {...props} />
+                     </div>
+                 },
+                 a: ({node, ...props}) => <a className="text-white/90 underline decoration-white/30 underline-offset-4 hover:decoration-white/60 transition-colors" {...props} />,
+                 img: ({node, ...props}) => <img className="rounded-lg w-full my-8 border border-white/5" {...props} />,
+                 hr: ({node, ...props}) => <hr className="border-white/10 my-10" {...props} />
+               }}
+             >
+               {post.content}
+             </ReactMarkdown>
+          </motion.div>
 
           {/* Footer Navigation */}
           <motion.div
