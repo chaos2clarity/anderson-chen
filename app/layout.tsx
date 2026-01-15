@@ -13,6 +13,9 @@ const pixelFont = Press_Start_2P({
 export const metadata = {
   title: "Anderson C.",
   description: "Portfolio website",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
