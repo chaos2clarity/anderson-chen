@@ -8,7 +8,7 @@ interface BlogCardProps {
 
 export default function BlogCard({ post, onClick }: BlogCardProps) {
   const CardContent = () => (
-    <div className="group h-full p-6 bg-[#121212] rounded-md 
+    <div className="group h-full p-5 md:p-6 bg-[#121212] rounded-md 
     border border-white/5 hover:border-white/10 transition-colors 
     duration-200 flex flex-col justify-between">
       <div>
@@ -16,12 +16,12 @@ export default function BlogCard({ post, onClick }: BlogCardProps) {
         group-hover:text-white mb-4 truncate">
           {post.title}
         </h3>
-        <p className="text-sm text-[#A1A1A1] line-clamp-3 leading-relaxed">
+        <p className="text-sm text-[#A1A1A1] line-clamp-2 md:line-clamp-3 leading-relaxed">
           {post.excerpt}
         </p>
       </div>
       
-      <div className="flex items-center gap-3 mt-6">
+      <div className="flex items-center gap-3 mt-4 md:mt-6">
         <div className="flex flex-col">
           <span className="text-xs font-medium text-[#EDEDED]">Anderson Chen</span>
           <span className="text-[11px] text-[#808080]">

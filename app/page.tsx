@@ -146,12 +146,7 @@ export default function Page() {
           
           {/* Right: Location - Responsive */}
           <div className="text-xs sm:text-sm font-light text-white/60 text-right">
-            {/* Mobile: Just current location */}
-            <div className="sm:hidden flex items-center gap-1">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
-              <span className="text-emerald-300">Now -</span>
-              <span className="text-emerald-300">Taipei</span>
-            </div>
+             {/* Mobile location removed as requested */}
             {/* Desktop: Full location text */}
           
           </div>
@@ -166,7 +161,7 @@ export default function Page() {
             <div className="max-w-4xl">
               <div className="flex-1">
                 {/* Subtitle - directly below name */}
-                <div className="mt-32">
+                <div className="mt-8 md:mt-32">
                   <p className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base font-light leading-relaxed text-white/60 max-w-2xl">
                     I'm taking a gap year and building <Link 
                     className="text-white transition-colors"
@@ -247,7 +242,7 @@ export default function Page() {
           >
             <div className="flex items-end justify-between mb-6">
               <div>
-                <h2 className="text-3xl md:text-4xl font-light text-white mb-2">
+                <h2 className="text-3xl md:text-4xl font-light text-white mb-2 whitespace-nowrap">
                    Creative works
                 </h2>
                 <p className="text-white/60 text-sm md:text-base font-light">
@@ -772,9 +767,7 @@ export default function Page() {
                       Writing about tech, life, and the in-between.
                     </p>
                   </div>
-                  <Link href="/pages/blogs" className="text-sm text-white/40 hover:text-white transition-colors border-b border-white/10 pb-1 hover:border-white">
-                    View all posts →
-                  </Link>
+            
                 </div>
               </motion.div>
 
