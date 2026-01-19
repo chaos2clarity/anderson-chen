@@ -54,8 +54,9 @@ export default function Page() {
   >("photography");
   const [currentIndices, setCurrentIndices] = useState<number[]>([]);
   
-  // Load recent blog posts
-  const [recentPosts, setRecentPosts] = useState<any[]>([]);
+  // Load blog posts
+  // Load blog posts
+  const [displayPosts, setDisplayPosts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const transition = {
@@ -69,11 +70,11 @@ export default function Page() {
     const loadPosts = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('/api/blog?limit=3');
+        const response = await fetch('/api/blog');
         
         if (!response.ok) {
           console.error('Blog API response not ok:', response.status, response.statusText);
-          setRecentPosts([]);
+          setDisplayPosts([]);
           return;
         }
         
@@ -84,15 +85,27 @@ export default function Page() {
           data = JSON.parse(text);
         } catch (parseError) {
           console.error('Failed to parse blog API response as JSON:', text.substring(0, 200));
-          setRecentPosts([]);
+          setDisplayPosts([]);
           return;
         }
         
-        setRecentPosts(data.posts || []);
+        const allPosts = data.posts || [];
+        
+        // Get 3 latest Main posts
+        const mainPosts = allPosts
+          .filter((post: any) => post.category !== 'Lifelong Learner')
+          .slice(0, 3);
+        
+        // Get 3 latest Lifelong Learner posts
+        const microPosts = allPosts
+          .filter((post: any) => post.category === 'Lifelong Learner')
+          .slice(0, 3);
+          
+        setDisplayPosts([...mainPosts, ...microPosts]);
       } catch (error) {
         console.error('Error loading blog posts:', error);
         // Set fallback posts if API fails
-        setRecentPosts([]);
+        setDisplayPosts([]);
       } finally {
         setIsLoading(false);
       }
@@ -756,47 +769,81 @@ export default function Page() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="mb-12"
+                className="mb-8 flex items-end justify-between"
               >
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    <h2 className="text-3xl md:text-4xl font-light text-white mb-2">
-                       Latest thoughts
-                    </h2>
-                    <p className="text-white/60 text-sm md:text-base font-light">
-                      Writing about tech, life, and the in-between.
-                    </p>
-                  </div>
-            
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-light text-white mb-2">
+                     Latest thoughts
+                  </h2>
+                  <p className="text-white/60 text-sm md:text-base font-light">
+                    Writing about tech, life, and the in-between.
+                  </p>
                 </div>
+                
+                <Link href="/blog" className="hidden sm:flex items-center gap-2 text-white/40 hover:text-white transition-colors text-sm">
+                  View all <ArrowRight className="w-4 h-4" />
+                </Link>
               </motion.div>
 
-              {/* Cursor-style Grid Layout - 3 Columns now since it is full width */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {isLoading ? (
-                   // Loading Skeletons
-                  [1, 2, 3].map((i) => (
-                    <div key={i} className="h-64 bg-white/5 rounded-lg animate-pulse border border-white/5"></div>
-                  ))
-                ) : recentPosts && recentPosts.length > 0 ? (
-                  recentPosts.map((post: any, index: number) => (
-                    <motion.div
-                      key={post.slug}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="h-full"
-                    >
-                      <BlogCard post={post} onClick={(post) => setSelectedBlog(post)} />
-                    </motion.div>
-                  ))
-                ) : (
-                  <div className="col-span-full text-center py-12 text-white/40 bg-white/5 rounded-lg border border-white/5">
-                    <p>No blog posts found.</p>
-                  </div>
-                )}
+              {/* Combined Grid Layout */}
+              {/* Combined Horizontal Layout */}
+              <div 
+                className="flex overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory -mx-6 px-6 sm:mx-0 sm:px-0"
+                style={{ scrollBehavior: "smooth" }}
+              >
+                <div className="flex gap-4 min-w-max pb-1">
+                  {isLoading ? (
+                    // Loading Skeletons
+                    [1, 2, 3].map((i) => (
+                      <div key={i} className="w-[280px] sm:w-[320px] h-64 bg-white/5 rounded-lg animate-pulse border border-white/5 snap-center"></div>
+                    ))
+                  ) : displayPosts.length > 0 ? (
+                    displayPosts.map((post: any, index: number) => (
+                      <motion.div
+                        key={post.slug}
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        className="w-[280px] sm:w-[320px] h-full snap-center"
+                      >
+                        <BlogCard post={post} onClick={(post) => setSelectedBlog(post)} />
+                      </motion.div>
+                    ))
+                  ) : (
+                    <div className="w-full text-center py-12 text-white/40 bg-white/5 rounded-lg border border-white/5">
+                      <p>No blog posts found.</p>
+                    </div>
+                  )}
+                </div>
               </div>
+              
+              {/* Mobile View All Link */}
+              <div className="mt-8 flex justify-center sm:hidden">
+                <Link href="/blog" className="flex items-center gap-2 text-white/40 hover:text-white transition-colors text-sm">
+                  View all <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+
+              {/* Notion Page Embed */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="mt-16 w-full rounded-lg border 
+                border-white/5 overflow-hidden bg-white/5"
+              >
+                <iframe 
+                  src="https://candle-cell-ebd.notion.site/ebd//2edce0046ebb80fea4c3cc60ef706d9d" 
+                  width="100%" 
+                  height="600" 
+                  frameBorder="0" 
+                  allowFullScreen 
+                  className="w-full"
+                />
+              </motion.div>
+
             </div>
 
             {/* Projects Section */}

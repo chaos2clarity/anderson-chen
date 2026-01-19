@@ -12,6 +12,12 @@ export default function BlogCard({ post, onClick }: BlogCardProps) {
     border border-white/5 hover:border-white/10 transition-colors 
     duration-200 flex flex-col justify-between">
       <div>
+        {post.category === 'Lifelong Learner' && (
+          <span className="inline-block mb-3 px-1.5 py-0.5 rounded text-[10px] font-medium 
+          bg-purple-400/10 text-purple-400 border border-purple-400/20">
+            Lifelong Learner
+          </span>
+        )}
         <h3 className="text-lg font-medium text-[#EDEDED]
         group-hover:text-white mb-4 truncate">
           {post.title}
