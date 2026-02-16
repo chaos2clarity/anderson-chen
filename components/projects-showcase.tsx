@@ -13,7 +13,7 @@ const ProjectsShowcase = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
         viewport={{ once: true }}
       >
-        <Link href="https://claritynotes.co" target="_blank" rel="noopener noreferrer" className="block group">
+        <Link href="https://claritynotes.xyz" target="_blank" rel="noopener noreferrer" className="block group">
            <div className="space-y-3">
              {/* Image Area */}
              <div className="relative aspect-[14/10] w-full overflow-hidden rounded-md border border-white/10 bg-[#1C1C1C]">
